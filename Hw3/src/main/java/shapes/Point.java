@@ -5,8 +5,9 @@ package shapes;
  *
  * This class represents point objects that can be moved and copied
  */
-@SuppressWarnings("WeakerAccess")
-public class Point {
+
+    @SuppressWarnings("WeakerAccess")
+    public class Point implements Shapes {
     private double x;
     private double y;
 
@@ -82,4 +83,7 @@ public class Point {
     public Point copy() throws ShapeException {
         return new Point(x, y);
     }
+
+    @Override
+    public void draw(){}
 }

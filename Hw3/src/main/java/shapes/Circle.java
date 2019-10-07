@@ -7,7 +7,7 @@ package shapes;
  *
  */
 @SuppressWarnings("WeakerAccess")
-public class Circle {
+public class Circle implements Shapes {
     private Point center;
     private double radius;
 
@@ -80,5 +80,8 @@ public class Circle {
     public double computeArea() {
         return Math.PI * Math.pow(radius, 2);
     }
+
+    @Override
+    public void draw(){}
 
 }

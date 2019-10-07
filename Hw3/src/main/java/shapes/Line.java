@@ -8,7 +8,7 @@ package shapes;
  *
  */
 @SuppressWarnings("WeakerAccess")
-public class Line {
+public class Line implements Shapes {
     private Point point1;
     private Point point2;
 
@@ -74,5 +74,10 @@ public class Line {
      */
     public double computeSlope() {
         return (point2.getX() - point1.getX())/(point2.getY() - point1.getY());
+    }
+
+    @Override
+    public void draw() {
+
     }
 }
