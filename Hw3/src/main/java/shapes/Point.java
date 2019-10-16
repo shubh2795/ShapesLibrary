@@ -85,5 +85,16 @@ package shapes;
     }
 
     @Override
-    public void draw(){}
+    public void draw() {
+
+    }
+
+    @Override
+    public void scale(double scaleFactor) throws ShapeException {
+
+    }
+    @Override
+    public double computeArea() {
+    return 0;
+    }
 }

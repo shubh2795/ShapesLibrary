@@ -56,6 +56,7 @@ public class Line implements Shapes {
      * @param deltaY            The delta y-location by which the line should be moved -- must be a valid double
      * @throws ShapeException   Exception throw if any parameter is invalid
      */
+   @Override
     public void move(double deltaX, double deltaY) throws ShapeException {
         point1.move(deltaX, deltaY);
         point2.move(deltaX, deltaY);
@@ -79,5 +80,16 @@ public class Line implements Shapes {
     @Override
     public void draw() {
 
+    }
+
+    @Override
+    public void scale(double scaleFactor) throws ShapeException {
+        Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
+        double getSlope = computeSlope();
+    }
+
+    @Override
+    public double computeArea() {
+    return 0;
     }
 }

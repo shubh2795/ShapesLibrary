@@ -1,11 +1,6 @@
 package shapes;
 
-/**
- * Circle
- *
- * This class represents circle objects that can be moved and scales.  Users of a circle can also get its area.
- *
- */
+
 @SuppressWarnings("WeakerAccess")
 public class Circle implements Shapes {
     private Point center;
@@ -69,6 +64,7 @@ public class Circle implements Shapes {
      *                          >1 to grow.
      * @throws ShapeException   Exception thrown if the scale factor is not valid
      */
+    @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
         radius *= scaleFactor;
@@ -77,11 +73,14 @@ public class Circle implements Shapes {
     /**
      * @return  The area of the circle.
      */
+    @Override
     public double computeArea() {
         return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
-    public void draw(){}
+    public void draw() {
+
+    }
 
 }
