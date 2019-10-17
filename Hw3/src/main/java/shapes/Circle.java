@@ -23,12 +23,9 @@ public class Circle implements Shapes {
         this.radius = radius;
     }
 
-
     public Point getCenter() throws ShapeException { return center.copy(); }
 
-
     public double getRadius() { return radius; }
-
 
     public void move(double deltaX, double deltaY) throws ShapeException {
         center.move(deltaX, deltaY);
@@ -40,7 +37,6 @@ public class Circle implements Shapes {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
         radius *= scaleFactor;
     }
-
 
     @Override
     public double computeArea() {

@@ -1,10 +1,8 @@
 package shapes;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-class CompositeShape implements Shapes {
+    public class CompositeShape implements Shapes {
     //collection of Shapes
     private List<Shapes> shapes = new ArrayList<Shapes>();
 
