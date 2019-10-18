@@ -61,11 +61,11 @@ public class Line implements Shapes {
         // Shift the shape back to its original location
         move(xOffset, yOffset);
     }
-
+    //TODO: Modify the scale method at the moment just addding to remove errors
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
-        double getSlope = computeSlope();
+
     }
 
     @Override

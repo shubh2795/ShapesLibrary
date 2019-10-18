@@ -59,7 +59,7 @@ import java.io.*;
                     return new CompositeShape(broken_text);
                 }
                 if(first.equals("EmbeddedPicture")){
-                    return new EmbeddedPicture(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), broken_text[5]);
+                    return new EmbeddedImage(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), broken_text[5]);
                 }
             }
                     catch(Exception e)
