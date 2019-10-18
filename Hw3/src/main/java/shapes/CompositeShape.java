@@ -1,30 +1,37 @@
 package shapes;
 import ExtendedShapes.Ellipse;
 import ExtendedShapes.EmbeddedImage;
+import ExtendedShapes.Rectangle;
 import ExtendedShapes.Triangle;
 
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
     public class CompositeShape implements Shapes {
-    //collection of Shapes
-    private List<Shape> shapes;
 
-        public CompositeShape()
-        {
-            shapes = new ArrayList<Shape>();
+        //collection of Shapes
+        private List<Shapes> shapes = new ArrayList<Shapes>();
+
+        //adding shape to drawing
+        public void add(Shapes s){
+            this.shapes.add(s);
         }
 
-        public List<Shape> getShapes() {
-            return shapes;
+        //removing shape from drawing
+        public void remove(Shapes s){
+            shapes.remove(s);
         }
+
+        //removing all the shapes
+        public void clear(){
+            System.out.println("Clearing all the shapes from drawing");
+            this.shapes.clear();
+        }
+
 
         public CompositeShape(String [] broke)
         {
@@ -33,7 +40,7 @@ import java.util.List;
 //            System.out.println(broke[j]);
 //        }
             try{
-                shapes = new ArrayList<Shape>();
+
                 for(int i=1; i<=broke.length; i++)
                 {
                     if(broke[i].equals("\nCircle"))
@@ -112,22 +119,12 @@ import java.util.List;
                 e.printStackTrace();
             }
         }
-        public void addShape(Shape shape){
-            shapes.add(shape);
-        }
-        public void removeShape(Shape shape)
-        {
-            shapes.remove(shape);
-        }
-        public void removeAllShapes()
-        {
-            shapes.clear();
-        }
+
 
         @Override
         public double computeArea() throws ShapeException {
             double areaSum = 0;
-            for(Shape s : shapes)
+            for(Shapes s : shapes)
             {
                 areaSum = areaSum + s.computeArea();
             }
@@ -136,7 +133,7 @@ import java.util.List;
 
         @Override
         public void move(double deltaX, double deltaY) throws ShapeException {
-            for(Shape s : shapes)
+            for(Shapes s : shapes)
             {
                 s.move(deltaX,deltaY);
             }
@@ -148,7 +145,7 @@ import java.util.List;
                     file.createNewFile();
                     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
                     bufferedWriter.newLine();
-                    for (Shape s : shapes) {
+                    for (Shapes s : shapes) {
                         System.out.println(s.getClass().getName());
                         System.out.println("for loop");
                         if (!(s.getClass().getName().equals("examples.shapes.CompositeShape"))) {
@@ -158,11 +155,11 @@ import java.util.List;
                         else{
                             bufferedWriter.write("Compositeshape,");
                             bufferedWriter.newLine();
-                            for(int i = 0; i<s.getShapes().size(); i++)
-                            {
-                                bufferedWriter.write(s.getShapes().get(i).toString());
-                                bufferedWriter.newLine();
-                            }
+//                            for(int i = 0; i<s.getShapes().size(); i++)
+//                            {
+//                                bufferedWriter.write(s.getShapes().get(i).toString());
+//                                bufferedWriter.newLine();
+//                            }
                             bufferedWriter.write("/Compositeshape,");
                             bufferedWriter.newLine();
                         }
@@ -176,18 +173,6 @@ import java.util.List;
             return null;
         }
 
-        @Override
-        public String toString() {
-            try {
-                File newFile = makeFile("sample.txt");
-                String text = new String(Files.readAllBytes(Paths.get("sample.txt")), StandardCharsets.UTF_8);
-                return "Compositeshape,"+text;
-            }catch(Exception e){
-
-            }
-            return null;
-        }
-
         //TODO: Modify the scale method at the moment just addding to remove errors
         @Override
         public void scale(double scaleFactor) throws ShapeException {
@@ -195,9 +180,10 @@ import java.util.List;
 
         }
 
+
         @Override
         public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
-            for(Shape s : shapes)
+            for(Shapes s : shapes)
             {
                 s.render(graphics,xOffset,yOffset);
             }

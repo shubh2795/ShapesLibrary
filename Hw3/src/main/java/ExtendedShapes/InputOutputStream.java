@@ -1,13 +1,11 @@
 package ExtendedShapes;
-import shapes.Circle;
-import shapes.CompositeShape;
-import shapes.Line;
-import java.awt.*;
+import shapes.*;
+
 import java.io.*;
 
     public class InputOutputStream {
 
-            public static Shape load(FileInputStream fileInputStream) {
+            public static Shapes load(FileInputStream fileInputStream) {
                 try {
                 System.out.println("opening");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
@@ -47,10 +45,6 @@ import java.io.*;
                     System.out.println(broken_text[0]);
                     return new Rectangle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]), Double.parseDouble(broken_text[7]), Double.parseDouble(broken_text[8]));
                 }
-                if (first.equals("Square")) {
-                    System.out.println(broken_text[0]);
-                    return new Rectangle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]), Double.parseDouble(broken_text[7]), Double.parseDouble(broken_text[8]));
-                }
                 if (first.equals("Triangle")) {
                     System.out.println(broken_text[0]);
                     return new Triangle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]));
@@ -70,7 +64,7 @@ import java.io.*;
             }
 
 
-            public static void saveShape(String fileName, Shape shape) {
+            public static void saveShape(String fileName, Shapes shape) {
                 try{
                     File file = new File(fileName);
                     if(!file.exists())

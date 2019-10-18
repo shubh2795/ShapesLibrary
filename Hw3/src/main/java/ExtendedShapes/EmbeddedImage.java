@@ -1,16 +1,14 @@
 package ExtendedShapes;
-
-package examples.shapes;
-
+import shapes.Point;
 import shapes.ShapeException;
 import shapes.Shapes;
-
+import shapes.Validator;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import java.util.List;
+
 
 public class EmbeddedImage implements Shapes {
 
@@ -41,11 +39,12 @@ public class EmbeddedImage implements Shapes {
         imageLocation.move(deltaX,deltaY);
     }
 
+    //TODO: Modify the scale method at the moment just addding to remove errors
     @Override
-    public List<Shape> getShapes() {
-        return null;
-    }
+    public void scale(double scaleFactor) throws ShapeException {
+        Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
+    }
     @Override
     public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
         // Shift the shape by the specified rendering offset
@@ -69,9 +68,6 @@ public class EmbeddedImage implements Shapes {
         move(xOffset, yOffset);
     }
 
-    @Override
-    public String toString() {
-        return "EmbeddedPicture,"+imageLocation.getX()+","+imageLocation.getY()+","+String.valueOf(length)+","+String.valueOf(width)+","+source+",";
-    }
+
 }
 

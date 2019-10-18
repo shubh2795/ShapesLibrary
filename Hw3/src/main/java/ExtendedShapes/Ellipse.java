@@ -1,11 +1,8 @@
 package ExtendedShapes;
-
-import shapes.Line;
-import shapes.ShapeException;
-import shapes.Shapes;
-import shapes.Validator;
-
+import shapes.*;
+import shapes.Point;
 import java.awt.*;
+
 
 public class Ellipse implements Shapes {
 
@@ -105,13 +102,6 @@ public class Ellipse implements Shapes {
     public double computeArea() {
         return Math.PI * (majorAxis / 2) * (minorAxis / 2);
     }
-
-    @Override
-    public String toString() {
-        System.out.println("toString method");
-        return "Ellipse,"+String.valueOf(center.getX())+","+String.valueOf(center.getY())+","+String.valueOf(focus1.getX())+","+String.valueOf(focus1.getY())+","+String.valueOf(focus2.getX())+","+String.valueOf(focus2.getY())+","+String.valueOf(majorAxis)+","+String.valueOf(minorAxis)+",";
-    }
-
 
     public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
         move(-xOffset, -yOffset);

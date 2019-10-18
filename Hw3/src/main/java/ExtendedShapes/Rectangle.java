@@ -1,12 +1,11 @@
 package ExtendedShapes;
 
-import shapes.Line;
+import shapes.*;
 import shapes.Point;
-import shapes.ShapeException;
 
 import java.awt.*;
 
-public class Rectangle {
+public class Rectangle implements Shapes {
 
         private double width;
         private double length;
@@ -27,6 +26,7 @@ public class Rectangle {
          * @param y4                The y-location of second point -- must be a valid double.
          * @throws ShapeException   Exception throw if any parameter is invalid
          */
+
         public Rectangle(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4) throws ShapeException
         {
                 point1 = new Point(x1,y1);
@@ -89,13 +89,13 @@ public class Rectangle {
                 this.width = width;
                 this.length = length;
         }
-        /*
-         * computeArea function calculates the area of the rectangle.
-         */
+
+        @Override
         public double computeArea()
         {
                 return length*width;
         }
+
         /*
          * getVertices function returns all four vertices of rectangle
          */
@@ -137,11 +137,19 @@ public class Rectangle {
          * @param deltaY            The delta y-location by which the line should be moved -- must be a valid double
          * @throws ShapeException   Exception throw if any parameter is invalid
          */
+        @Override
         public void move(double deltaX,double deltaY)throws ShapeException{
                 point1.move(deltaX,deltaY);
                 point2.move(deltaX,deltaY);
                 point3.move(deltaX,deltaY);
                 point4.move(deltaX,deltaY);
+        }
+
+        //TODO: Modify the scale method at the moment just addding to remove errors
+        @Override
+        public void scale(double scaleFactor) throws ShapeException {
+                Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
+
         }
         public Line getLine1() {
                 return line1;
@@ -159,11 +167,8 @@ public class Rectangle {
                 return line4;
         }
 
-        @Override
-        public String toString() {
-                return "Rectangle,"+String.valueOf(point1.getX())+","+String.valueOf(point1.getY())+","+String.valueOf(point2.getX())+","+String.valueOf(point2.getY())+","+String.valueOf(point3.getX())+","+String.valueOf(point3.getY())+","+String.valueOf(point4.getX())+","+String.valueOf(point4.getY())+",";
-        }
 
+        @Override
         public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
 
                 // Shift the shape by the specified rendering offset
