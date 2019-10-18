@@ -7,7 +7,7 @@ import java.util.List;
     private List<Shapes> shapes = new ArrayList<Shapes>();
 
     @Override
-    public void draw() {}
+    public void render() {}
 
     //adding shape to drawing
     public void add(Shapes s){

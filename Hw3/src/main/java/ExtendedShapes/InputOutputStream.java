@@ -1,6 +1,7 @@
 package ExtendedShapes;
 import shapes.Circle;
 import shapes.CompositeShape;
+import shapes.Line;
 import java.awt.*;
 import java.io.*;
 

@@ -55,7 +55,7 @@ package shapes;
     }
 
     @Override
-    public void draw() {
+    public void render() {
 
     }
 
