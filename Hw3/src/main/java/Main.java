@@ -7,6 +7,7 @@ import java.text.AttributedCharacterIterator;
 
 
 public class Main {
+
     static Graphics graphics = new Graphics() {
         @Override
         public Graphics create() {
@@ -194,8 +195,8 @@ public class Main {
         Shapes circle = new Circle(1,2,3);
         String [] shapes = {"Circle","Triangle"};
         CompositeShape compositeShape = new CompositeShape(shapes);
-        compositeShape.add(triangle);
-        compositeShape.add(circle);
+        compositeShape.addShape(triangle);
+        compositeShape.addShape(circle);
         compositeShape.render( graphics,  2, 3);
         }
         catch (Exception e){

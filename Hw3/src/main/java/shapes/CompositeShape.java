@@ -3,7 +3,6 @@ import ExtendedShapes.Ellipse;
 import ExtendedShapes.EmbeddedImage;
 import ExtendedShapes.Rectangle;
 import ExtendedShapes.Triangle;
-
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,107 +11,78 @@ import java.util.ArrayList;
 import java.util.List;
 
     public class CompositeShape implements Shapes {
-
         //collection of Shapes
         private List<Shapes> shapes = new ArrayList<Shapes>();
 
-        //adding shape to drawing
-        public void add(Shapes s){
+        public void addShape(Shapes s){
             this.shapes.add(s);
         }
 
-        //removing shape from drawing
-        public void remove(Shapes s){
+        public void removeShape(Shapes s){
             shapes.remove(s);
         }
 
-        //removing all the shapes
-        public void clear(){
+        public void removeAllShapes(){
             System.out.println("Clearing all the shapes from drawing");
             this.shapes.clear();
         }
 
+        //TODO:: refactor
+        public CompositeShape(String [] broke) {
 
-        public CompositeShape(String [] broke)
-        {
-//        for(int j = 0;j<=broke.length;j++)
-//        {
-//            System.out.println(broke[j]);
-//        }
             try{
 
                 for(int i=0; i<broke.length; i++)
                 {
-                    if(broke[i].equals("\nCircle"))
-                    {
-                        System.out.println("circle add");
-                        shapes.add(new Circle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3])));
-                        //i = i+4;
-                        //System.out.println(i);
-                        //System.out.println(broke[i]);
+                    if(broke[i].equals("\nPoint")){
+                        shapes.add(new Point(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2])));
                     }
 
-                    if(broke[i].equals("\nTriangle"))
-                    {
-                        System.out.println("triangle add");
-                        shapes.add(new Triangle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4]),Double.parseDouble(broke[i+5]), Double.parseDouble(broke[i+6])));
-                        //i=i+7;
-                    }
-                    if(broke[i].equals("\nEllipse"))
-                    {
-                        shapes.add(new Ellipse(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]),Double.parseDouble(broke[i+4]),Double.parseDouble(broke[i+5]),Double.parseDouble(broke[i+6]),Double.parseDouble(broke[i+7]),Double.parseDouble(broke[i+8])));
-                        //i=i+9;
-                    }
-                    if(broke[i].equals("\nRectangle"))
-                    {
-                        System.out.println("rectangle add");
-                        shapes.add(new Rectangle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4]), Double.parseDouble(broke[i+5]), Double.parseDouble(broke[i+6]), Double.parseDouble(broke[i+7]), Double.parseDouble(broke[i+8])));
-                        //i=i+9;
-                    }
-                    if(broke[i].equals("\nLine"))
-                    {
-                        System.out.println("line add");
+                    if(broke[i].equals("\nLine")) {
+                        System.out.println("line addShape");
                         shapes.add(new Line(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4])));
-                        //i=i+4;
                     }
-                    if(broke[i].equals("\nPoint"))
-                    {
-                        shapes.add(new Point(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2])));
-                        //i=i+3;
+
+                    if(broke[i].equals("\nCircle")){
+                        System.out.println("circle addShape");
+                        shapes.add(new Circle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3])));
                     }
-                    if(broke[i].equals("\nCompositeshape"))
-                    {
-                        System.out.println("compositeShape add");
+
+                    if(broke[i].equals("\nTriangle")){
+                        System.out.println("triangle addShape");
+                        shapes.add(new Triangle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4]),Double.parseDouble(broke[i+5]), Double.parseDouble(broke[i+6])));
+                    }
+
+                    if(broke[i].equals("\nRectangle")){
+                        System.out.println("rectangle addShape");
+                        shapes.add(new Rectangle(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4]), Double.parseDouble(broke[i+5]), Double.parseDouble(broke[i+6]), Double.parseDouble(broke[i+7]), Double.parseDouble(broke[i+8])));
+                    }
+
+                    if(broke[i].equals("\nEllipse")){
+                        shapes.add(new Ellipse(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]),Double.parseDouble(broke[i+4]),Double.parseDouble(broke[i+5]),Double.parseDouble(broke[i+6]),Double.parseDouble(broke[i+7]),Double.parseDouble(broke[i+8])));
+                    }
+
+                    if(broke[i].equals("\nCompositeshape")){
+                        System.out.println("compositeShape addShape");
                         while(!(broke[i].equals("\n/Compositeshape")))
                         {
-                            // System.out.println("second loop");
+
                             String packetString = "";
                             String [] broke2 = null;
                             while(!(broke[i].equals("\n/Compositeshape")))
                             {
-                                //System.out.println("third loop");
                                 packetString = packetString.concat(broke[i]);
                                 packetString = packetString.concat(",");
-                                //System.out.println(packetString);
                                 i++;
                             }
-                            //System.out.println(packetString);
                             broke2 = packetString.split(",");
-                            //System.out.println("packet string is :");
-//                    for(int j = 0; j<broke2.length; j++)
-//                        System.out.print(broke2[j]);
                             CompositeShape compositeShape = new CompositeShape(broke2);
                             shapes.add(compositeShape);
                         }
-
                     }
-                    if(broke[i].equals("\nEmbeddedPicture"))
-                    {
+                    if(broke[i].equals("\nEmbeddedPicture")){
                         shapes.add(new EmbeddedImage(Double.parseDouble(broke[i+1]), Double.parseDouble(broke[i+2]), Double.parseDouble(broke[i+3]), Double.parseDouble(broke[i+4]), broke[i+5]));
-                        //i=i+3;
                     }
-
-                    //System.out.println("size is :" +shapes.size());
                 }
 
             }catch (Exception e){
@@ -120,6 +90,35 @@ import java.util.List;
             }
         }
 
+        public File makeFile(String sampleFile) {
+            try {
+                File file = new File(sampleFile);
+                if (!file.exists()) {
+                    file.createNewFile();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+                    bufferedWriter.newLine();
+                    for (Shapes s : shapes) {
+                        System.out.println(s.getClass().getName());
+                        System.out.println("for loop");
+                        if (!(s.getClass().getName().equals("examples.shapes.CompositeShape"))) {
+                            bufferedWriter.write(s.toString());
+                            bufferedWriter.newLine();
+                        }
+                        else{
+                            bufferedWriter.write("Compositeshape,");
+                            bufferedWriter.newLine();
+                            bufferedWriter.write("/Compositeshape,");
+                            bufferedWriter.newLine();
+                        }
+                    }
+                    bufferedWriter.close();
+                    return file;
+                }
+            } catch (Exception e) {
+
+            }
+            return null;
+        }
 
         @Override
         public double computeArea() throws ShapeException {
@@ -138,40 +137,6 @@ import java.util.List;
                 s.move(deltaX,deltaY);
             }
         }
-        public File makeFile(String sampleFile) {
-            try {
-                File file = new File(sampleFile);
-                if (!file.exists()) {
-                    file.createNewFile();
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-                    bufferedWriter.newLine();
-                    for (Shapes s : shapes) {
-                        System.out.println(s.getClass().getName());
-                        System.out.println("for loop");
-                        if (!(s.getClass().getName().equals("examples.shapes.CompositeShape"))) {
-                            bufferedWriter.write(s.toString());
-                            bufferedWriter.newLine();
-                        }
-                        else{
-                            bufferedWriter.write("Compositeshape,");
-                            bufferedWriter.newLine();
-//                            for(int i = 0; i<s.getShapes().size(); i++)
-//                            {
-//                                bufferedWriter.write(s.getShapes().get(i).toString());
-//                                bufferedWriter.newLine();
-//                            }
-                            bufferedWriter.write("/Compositeshape,");
-                            bufferedWriter.newLine();
-                        }
-                    }
-                    bufferedWriter.close();
-                    return file;
-                }
-            } catch (Exception e) {
-
-            }
-            return null;
-        }
 
         //TODO: Modify the scale method at the moment just addding to remove errors
         @Override
@@ -179,7 +144,6 @@ import java.util.List;
             Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
         }
-
 
         @Override
         public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {

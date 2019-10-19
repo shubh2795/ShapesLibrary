@@ -5,9 +5,9 @@ import java.io.*;
 
     public class InputOutputStream {
 
-            public static Shapes load(FileInputStream fileInputStream) {
+            public static Shapes loadShape(FileInputStream fileInputStream){
                 try {
-                System.out.println("opening");
+                System.out.println("Loading Shape...");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 String[] broken_text = null;
                 String text = null;
@@ -23,7 +23,10 @@ import java.io.*;
                 String first = broken_text[0];
 
                 // TODO: Remove all the duplicate code
-
+                if (first.equals("Line")) {
+                    System.out.println(broken_text[0]);
+                    return new Line(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]));
+                }
                 if (first.equals("Circle")) {
                     System.out.println("if condition");
                     System.out.println(broken_text[1]);
@@ -33,10 +36,7 @@ import java.io.*;
                     System.out.println(broken_text[0]);
                     return new Ellipse(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]), Double.parseDouble(broken_text[7]), Double.parseDouble(broken_text[8]));
                 }
-                if (first.equals("Line")) {
-                    System.out.println(broken_text[0]);
-                    return new Line(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]));
-                }
+
                 if (first.equals("Point")) {
                     System.out.println(broken_text[0]);
                     return new Point(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]));

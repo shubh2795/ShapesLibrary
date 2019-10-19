@@ -16,8 +16,7 @@ public class Triangle implements Shapes {
     private double side2;
     private double side3;
 
-    public Triangle(double x1,double y1,double x2,double y2,double x3,double y3) throws ShapeException
-    {
+    public Triangle(double x1,double y1,double x2,double y2,double x3,double y3) throws ShapeException {
         point1 = new Point(x1,y1);
         point2 = new Point(x2,y2);
         point3 = new Point(x3,y3);
@@ -30,12 +29,10 @@ public class Triangle implements Shapes {
 
         //Collinearity check
         Validator.validateTriangleColinearity(line1,line2,line3);
-
     }
 
-    //Constructs a Triangle with given all points.
-
     public Triangle(Line line1, Line line2, Line line3) throws ShapeException {
+
         if (line1 == null || line2 == null || line3 == null){
             throw new ShapeException("Invalid Point");
         }
@@ -47,35 +44,21 @@ public class Triangle implements Shapes {
         Validator.validateTriangleColinearity(line1,line2,line3);
     }
 
-    //valid double check
-
-    public Triangle(double side1, double side2, double side3) throws ShapeException
-    {
-        if(side1 <= 0 || side2 <= 0 || side3 <= 0)
+    public Triangle(double side1, double side2, double side3) throws ShapeException {
+        if(side1 <= 0 || side2 <= 0 || side3 <= 0){
             throw new ShapeException("Invalid side");
+        }
+
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
     }
 
-    // Compute Perimeter method returns perimeter of Triangle
-    public double getPerimeter()
-    {
+    public double getPerimeter(){
         return side1 + side2 + side3;
     }
 
-    // Compute Area  of Triangle
-     public double computeArea()
-    {
-        //Area of a triangle = √s(s−a)(s−b)(s−c) where s is perimeter/2
-        double p = getPerimeter() / 2;
-        return Math.sqrt(p * ((p - side1) * (p - side2) * (p - side3)));
-    }
-    /*
-     * getVertices method returns an array of vertices of Triangle
-     */
-    public Point[] getVertices()
-    {
+    public Point[] getVertices(){
         Point [] vertices = {point1, point2, point3};
         return vertices;
     }
@@ -97,38 +80,35 @@ public class Triangle implements Shapes {
         return line3;
     }
 
+    @Override
+    public double computeArea() {
+        //Area of a triangle = √s(s−a)(s−b)(s−c) where s is perimeter/2
+        double p = getPerimeter() / 2;
+        return Math.sqrt(p * ((p - side1) * (p - side2) * (p - side3)));
+    }
+
     //TODO: Modify the scale method at the moment just addding to remove errors
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
     }
+
     @Override
     public String toString() {
         return "Triangle,"+String.valueOf(point1.getX())+","+String.valueOf(point1.getY())+","+String.valueOf(point2.getX())+","+String.valueOf(point2.getY())+","+String.valueOf(point3.getX())+","+String.valueOf(point3.getY())+",";
     }
 
+    @Override
     public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
 
-        // Shift the shape by the specified rendering offset
         move(-xOffset, -yOffset);
-
-        // Compute the left side of the bounding box
         int x = (int) Math.round(point1.getX() - line1.computeLength());
-
-        // Compute the top side of the bounding box
         int y = (int) Math.round(point3.getY() - line3.computeLength());
-
-        // Compute the width of the bounding box
         int width = (int) line2.computeLength();
-
         int [] xPoints = {(int)point1.getX(), (int)point2.getX(), (int)point3.getX()};
         int [] yPoints = {(int)point1.getY(), (int)point2.getY(), (int)point3.getY()};
-
-        // Draw the circle by drawing an oval in a square bounding box
         graphics.drawPolygon(xPoints, yPoints, 3);
-
-        // Shift the shape back to its original location
         move(xOffset, yOffset);
     }
 }
