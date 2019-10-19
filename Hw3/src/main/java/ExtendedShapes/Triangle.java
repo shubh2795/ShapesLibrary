@@ -28,25 +28,23 @@ public class Triangle implements Shapes {
         side2 = line2.computeLength();
         side3 = line3.computeLength();
 
-        //Colinearity check
+        //Collinearity check
+        Validator.validateTriangleColinearity(line1,line2,line3);
 
-        if(line1.computeSlope() == line2.computeSlope() || line2.computeSlope() == line3.computeSlope() || line1.computeSlope() == line3.computeSlope())
-            throw new ShapeException("Edges of triangle must not be collinear");
     }
 
     //Constructs a Triangle with given all points.
 
     public Triangle(Line line1, Line line2, Line line3) throws ShapeException {
-        if (line1 == null || line2 == null || line3 == null)
+        if (line1 == null || line2 == null || line3 == null){
             throw new ShapeException("Invalid Point");
+        }
         this.line1 = line1;
         this.line2 = line2;
         this.line3 = line3;
 
-        //Colinearity check
-
-        if(line1.computeSlope() == line2.computeSlope() || line2.computeSlope() == line3.computeSlope() || line1.computeSlope() == line3.computeSlope())
-            throw new ShapeException("Edges of triangle must not be collinear");
+        //Collinearity check
+        Validator.validateTriangleColinearity(line1,line2,line3);
     }
 
     //valid double check
@@ -67,10 +65,9 @@ public class Triangle implements Shapes {
     }
 
     // Compute Area  of Triangle
-
-
-    public double computeArea()
+     public double computeArea()
     {
+        //Area of a triangle = √s(s−a)(s−b)(s−c) where s is perimeter/2
         double p = getPerimeter() / 2;
         return Math.sqrt(p * ((p - side1) * (p - side2) * (p - side3)));
     }

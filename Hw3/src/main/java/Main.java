@@ -1,13 +1,13 @@
 import shapes.*;
 import ExtendedShapes.*;
-
 import java.awt.*;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import java.text.AttributedCharacterIterator;
 
+
 public class Main {
-    Graphics graphics = new Graphics() {
+    static Graphics graphics = new Graphics() {
         @Override
         public Graphics create() {
             return null;

@@ -2,10 +2,14 @@ package shapes;
 
 import org.junit.Test;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 public class CircleTest {
-
     @Test
     public void testValidConstruction() throws Exception {
         Point center = new Point(1,2);
@@ -27,70 +31,70 @@ public class CircleTest {
             new Circle(null, 2.5);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle( new Point(1, 2), Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(new Point(1, 2), Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(new Point(1, 2), Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(Double.POSITIVE_INFINITY, 2, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(Double.NEGATIVE_INFINITY, 2, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(Double.NaN, 2, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(1, Double.POSITIVE_INFINITY, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(1, Double.NEGATIVE_INFINITY, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(1, Double.NaN, 3);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
 
@@ -98,27 +102,36 @@ public class CircleTest {
             new Circle(1, 2, Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(1, 2, Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             new Circle(1, 2, Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
+
+    }
+    @Test
+    public void getCenter() {
 
     }
 
     @Test
-    public void testMove() throws ShapeException {
+    public void getRadius() {
+
+    }
+
+    @Test
+    public void move() throws Exception{
         Circle myCircle = new Circle(1, 2, 5);
         assertEquals(1, myCircle.getCenter().getX(), 0);
         assertEquals(2, myCircle.getCenter().getY(), 0);
@@ -148,48 +161,48 @@ public class CircleTest {
             myCircle.move(Double.POSITIVE_INFINITY, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.move(Double.NEGATIVE_INFINITY, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.move(Double.NaN, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.move(1, Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.move(1, Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.move(1, Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
     }
 
     @Test
-    public void testScale() throws ShapeException {
+    public void scale()throws ShapeException {
         Circle myCircle = new Circle(1, 2, 5);
         assertEquals(1, myCircle.getCenter().getX(), 0);
         assertEquals(2, myCircle.getCenter().getY(), 0);
@@ -209,26 +222,28 @@ public class CircleTest {
             myCircle.scale(Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.scale(Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
 
         try {
             myCircle.scale(Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+
         }
+
     }
 
     @Test
-    public void testComputeArea() throws ShapeException {
+    public void computeArea() throws ShapeException {
+
         Circle myCircle = new Circle(1, 2, 5);
         assertEquals(78.53975, myCircle.computeArea(), 0.0001);
 
@@ -238,6 +253,22 @@ public class CircleTest {
         myCircle = new Circle(1, 2, 0);
         assertEquals(0, myCircle.computeArea(), 0);
 
+    }
+
+    @Test
+    public void render() throws ShapeException {
+        try {
+            Circle myCircle = new Circle(40, 40, 30);
+            BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics = bImg.createGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, 100, 100);
+            graphics.setColor(Color.BLACK);
+            myCircle.render(graphics, 0, 0);
+            assertTrue(ImageIO.write(bImg, "png", new File("circle.png")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -252,5 +283,4 @@ public class CircleTest {
         assertEquals(1, myCircle.getCenter().getX(), 0);
         assertEquals(2, myCircle.getCenter().getY(), 0);
     }
-
 }

@@ -8,9 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-
-
-public class EmbeddedImage implements Shapes {
+ public class EmbeddedImage implements Shapes {
 
     private double length;
     private double width;

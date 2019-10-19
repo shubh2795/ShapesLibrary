@@ -41,7 +41,7 @@ import java.util.List;
 //        }
             try{
 
-                for(int i=1; i<=broke.length; i++)
+                for(int i=0; i<broke.length; i++)
                 {
                     if(broke[i].equals("\nCircle"))
                     {
