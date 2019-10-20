@@ -1,5 +1,5 @@
 import shapes.*;
-import ExtendedShapes.*;
+
 import java.awt.*;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;

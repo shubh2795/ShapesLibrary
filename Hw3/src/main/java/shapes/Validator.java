@@ -20,5 +20,16 @@ public class Validator {
         }
 
     }
+    public static void validateRectanglePerpendicularLines(Point point1,Point point2,Point point3,Point point4,Line line1,Line line2,Line line3,Line line4) throws ShapeException {
+        if(point1.getX() != point2.getX() && point2.getY() != point3.getY() && point3.getX() != point4.getX() && point4.getY() != point1.getY()){
+
+            if(line1.computeSlope()*line2.computeSlope() != -1 || line2.computeSlope()*line3.computeSlope() != -1 || line3.computeSlope()*line4.computeSlope() != -1 || line1.computeSlope()*line4.computeSlope() != -1) {
+                throw new ShapeException("Adjacent lines should be perpendicular to each other");
+            }
+        }
+
+    }
+
+
 
 }

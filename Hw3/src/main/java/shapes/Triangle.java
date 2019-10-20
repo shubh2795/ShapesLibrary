@@ -1,9 +1,4 @@
-package ExtendedShapes;
-import shapes.*;
-import shapes.Point;
-import shapes.ShapeException;
-import shapes.Validator;
-
+package shapes;
 import java.awt.*;
 
 public class Triangle implements Shapes {
@@ -92,11 +87,6 @@ public class Triangle implements Shapes {
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
-    }
-
-    @Override
-    public String toString() {
-        return "Triangle,"+String.valueOf(point1.getX())+","+String.valueOf(point1.getY())+","+String.valueOf(point2.getX())+","+String.valueOf(point2.getY())+","+String.valueOf(point3.getX())+","+String.valueOf(point3.getY())+",";
     }
 
     @Override

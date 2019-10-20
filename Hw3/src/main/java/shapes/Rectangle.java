@@ -1,6 +1,4 @@
-package ExtendedShapes;
-import shapes.*;
-import shapes.Point;
+package shapes;
 import java.awt.*;
 
 public class Rectangle implements Shapes {
@@ -13,8 +11,7 @@ public class Rectangle implements Shapes {
         private Line line4;
         private Point point1,point2,point3,point4;
 
-        public Rectangle(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4) throws ShapeException
-        {
+        public Rectangle(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4) throws ShapeException {
                 point1 = new Point(x1,y1);
                 point2 = new Point(x2,y2);
                 point3 = new Point(x3,y3);
@@ -26,16 +23,15 @@ public class Rectangle implements Shapes {
                 this.length = line1.computeLength();
                 this.width = line2.computeLength();
 
-                if(point1.getX() != point2.getX() && point2.getY() != point3.getY() && point3.getX() != point4.getX() && point4.getY() != point1.getY())
-                        if(line1.computeSlope()*line2.computeSlope() != -1 || line2.computeSlope()*line3.computeSlope() != -1 || line3.computeSlope()*line4.computeSlope() != -1 || line1.computeSlope()*line4.computeSlope() != -1)
-                                throw new ShapeException("Adjacent lines must be perpendicular to each other");
-
+                //perpendicular check
+                Validator.validateRectanglePerpendicularLines(point1,point2,point3,point4,line1,line2,line3,line4);
         }
 
-        public Rectangle(Line line1, Line line2, Line line3, Line line4) throws ShapeException
-        {
-                if(line1==null||line2==null||line3==null||line4==null)
+        public Rectangle(Line line1, Line line2, Line line3, Line line4) throws ShapeException {
+                if(line1==null||line2==null||line3==null||line4==null){
                         throw new ShapeException("Invalid Point");
+                }
+
                 this.line1 = line1;
                 this.line2 = line2;
                 this.line3 = line3;
@@ -47,17 +43,16 @@ public class Rectangle implements Shapes {
                 this.length = line1.computeLength();
                 this.width = line2.computeLength();
 
-                if(point1.getX() != point2.getX() && point2.getY() != point3.getY() && point3.getX() != point4.getX() && point4.getY() != point1.getY())
-                        if(line1.computeSlope()*line2.computeSlope() != -1 || line2.computeSlope()*line3.computeSlope() != -1 || line3.computeSlope()*line4.computeSlope() != -1 || line1.computeSlope()*line4.computeSlope() != -1)
-                                throw new ShapeException("Adjacent lines must be perpendicular to each other");
-
+                //perpendicular check
+                Validator.validateRectanglePerpendicularLines(point1,point2,point3,point4,line1,line2,line3,line4);
 
         }
 
-        public Rectangle(double length, double width) throws ShapeException
-        {
-                if(width <= 0 || length <= 0)
+        public Rectangle(double length, double width) throws ShapeException {
+                if(width <= 0 || length <= 0){
                         throw new ShapeException("Invalid side");
+                }
+
                 this.width = width;
                 this.length = length;
         }

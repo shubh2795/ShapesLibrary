@@ -20,16 +20,16 @@ import java.awt.*;
     public double getY() { return y; }
 
     public void moveX(double deltaX) throws ShapeException {
-        if (Double.isInfinite(deltaX) || Double.isNaN(deltaX))
+        if (Double.isInfinite(deltaX) || Double.isNaN(deltaX)){
             throw new ShapeException("Invalid delta value for move operation");
-
+        }
         x += deltaX;
     }
 
     public void moveY(double deltaY) throws ShapeException {
-        if (Double.isInfinite(deltaY) || Double.isNaN(deltaY))
+        if (Double.isInfinite(deltaY) || Double.isNaN(deltaY)){
             throw new ShapeException("Invalid delta value for move operation");
-
+        }
         y += deltaY;
     }
 

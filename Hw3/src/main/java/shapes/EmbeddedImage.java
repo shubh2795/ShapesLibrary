@@ -1,8 +1,5 @@
-package ExtendedShapes;
-import shapes.Point;
-import shapes.ShapeException;
-import shapes.Shapes;
-import shapes.Validator;
+package shapes;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +11,6 @@ import java.io.File;
     private double width;
     private Point imageLocation;
     private String source;
-
 
     public EmbeddedImage(double length, double width, double x, double y, String source) throws ShapeException {
 
@@ -43,17 +39,13 @@ import java.io.File;
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
     }
+
     @Override
     public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
-        // Shift the shape by the specified rendering offset
+
         move(-xOffset, -yOffset);
-
-        // Compute the left side of the bounding box
         int x = (int) Math.round(imageLocation.getX() - length);
-
-        // Compute the top side of the bounding box
         int y = (int) Math.round(imageLocation.getY() - width);
-
         File sourceFile = new File(source);
         BufferedImage sourceImage = null;
         try{
@@ -62,7 +54,6 @@ import java.io.File;
             e.printStackTrace();
         }
         graphics.drawImage(sourceImage, 0, 0, (int)width, (int)length, null);
-        // Shift the shape back to its original location
         move(xOffset, yOffset);
     }
 

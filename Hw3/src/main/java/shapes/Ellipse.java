@@ -1,6 +1,5 @@
-package ExtendedShapes;
-import shapes.*;
-import shapes.Point;
+package shapes;
+
 import java.awt.*;
 
 
