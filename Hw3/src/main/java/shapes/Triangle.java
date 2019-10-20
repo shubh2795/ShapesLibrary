@@ -17,7 +17,7 @@ public class Triangle implements Shapes {
         point3 = new Point(x3,y3);
         line1 = new Line(point1,point2);
         line2 = new Line(point2,point3);
-        line3 = new Line(point3,point1);
+        line3 = new Line(point1,point3);
         side1 = line1.computeLength();
         side2 = line2.computeLength();
         side3 = line3.computeLength();
@@ -82,23 +82,23 @@ public class Triangle implements Shapes {
         return Math.sqrt(p * ((p - side1) * (p - side2) * (p - side3)));
     }
 
-    //TODO: Modify the scale method at the moment just addding to remove errors
-    @Override
+   @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
-
+        line1.scale(scaleFactor);
+        line3.scale(scaleFactor);
     }
 
     @Override
-    public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
+    public void render(Graphics graphics) throws ShapeException {
 
-        move(-xOffset, -yOffset);
+
         int x = (int) Math.round(point1.getX() - line1.computeLength());
         int y = (int) Math.round(point3.getY() - line3.computeLength());
         int width = (int) line2.computeLength();
         int [] xPoints = {(int)point1.getX(), (int)point2.getX(), (int)point3.getX()};
         int [] yPoints = {(int)point1.getY(), (int)point2.getY(), (int)point3.getY()};
         graphics.drawPolygon(xPoints, yPoints, 3);
-        move(xOffset, yOffset);
+
     }
 }

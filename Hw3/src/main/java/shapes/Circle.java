@@ -41,13 +41,13 @@ public class Circle implements Shapes {
     }
 
     @Override
-    public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
-        move(-xOffset, -yOffset);
+    public void render(Graphics graphics) throws ShapeException {
+
         int x = (int) Math.round(center.getX() - getRadius());
         int y = (int) Math.round(center.getY() - getRadius());
         int width = (int) Math.round(getRadius()*2);
         graphics.drawOval(x, y, width, width);
-        move(xOffset, yOffset);
+
     }
 
 }

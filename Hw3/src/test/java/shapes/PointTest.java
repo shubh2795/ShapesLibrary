@@ -2,6 +2,11 @@ package shapes;
 
 import org.junit.Test;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 public class PointTest {
@@ -174,42 +179,42 @@ public class PointTest {
             p1.move(1, Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid Y to perform a move operation", e.getMessage());
         }
 
         try {
             p1.move(1, Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid Y to perform a move operation", e.getMessage());
         }
 
         try {
             p1.move(1, Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid Y to perform a move operation", e.getMessage());
         }
 
         try {
             p1.move(Double.POSITIVE_INFINITY, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid X to perform a move operation", e.getMessage());
         }
 
         try {
             p1.move(Double.NEGATIVE_INFINITY,1 );
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid X to perform a move operation", e.getMessage());
         }
 
         try {
             p1.move(Double.NaN,1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid X to perform a move operation", e.getMessage());
         }
 
     }
@@ -225,4 +230,21 @@ public class PointTest {
         assertEquals(p1.getX(), p2.getX(), 0);
         assertEquals(p1.getY(), p2.getY(), 0);
     }
+
+    @Test
+    public void renderTest() throws ShapeException{
+        try {
+            Point myPoint = new Point(50,50);
+            BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics = bImg.createGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, 100, 100);
+            graphics.setColor(Color.BLACK);
+            myPoint.render(graphics);
+            assertTrue(ImageIO.write(bImg, "jpg", new File("Point.jpg")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

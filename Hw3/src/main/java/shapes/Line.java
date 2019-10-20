@@ -40,22 +40,28 @@ public class Line implements Shapes {
     }
 
     @Override
-    public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
+    public void render(Graphics graphics) throws ShapeException {
 
-        move(-xOffset, -yOffset);
+
         int x1 = (int) Math.round(point1.getX());
         int x2 = (int) Math.round(point2.getX());
         int y1 = (int) Math.round(point1.getY());
         int y2 = (int) Math.round(point2.getY());
         graphics.drawLine(x1,y1,x2,y2);
-        move(xOffset, yOffset);
+
     }
 
-    //TODO: Modify the scale method at the moment just addding to remove errors
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
 
+        double length=Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) + Math.pow(point2.getY() - point1.getY(), 2));
+        double lengthScaled= length*scaleFactor;
+        double sineLine = (point2.getY()-point1.getY())/length;
+        double cosLine = (point2.getX()-point1.getX())/length;
+
+        point2.setY(point1.getY()+lengthScaled*sineLine);
+        point2.setX(point1.getX()+lengthScaled*cosLine);
     }
 
     @Override

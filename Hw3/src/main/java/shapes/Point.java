@@ -19,16 +19,20 @@ import java.awt.*;
 
     public double getY() { return y; }
 
+    public void setX(double x) {this.x=x;}
+
+    public void setY(double y) {this.y=y;}
+
     public void moveX(double deltaX) throws ShapeException {
         if (Double.isInfinite(deltaX) || Double.isNaN(deltaX)){
-            throw new ShapeException("Invalid delta value for move operation");
+            throw new ShapeException("Invalid X to perform a move operation");
         }
         x += deltaX;
     }
 
     public void moveY(double deltaY) throws ShapeException {
         if (Double.isInfinite(deltaY) || Double.isNaN(deltaY)){
-            throw new ShapeException("Invalid delta value for move operation");
+            throw new ShapeException("Invalid Y to perform a move operation");
         }
         y += deltaY;
     }
@@ -43,11 +47,11 @@ import java.awt.*;
         moveY(deltaY);
     }
 
-    // TODO: Modify the scale method at the moment just addding to remove errors
+
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
-
+        // no scaling for a point
     }
 
     @Override
@@ -55,14 +59,13 @@ import java.awt.*;
     return 0;
     }
 
-    public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
+    public void render(Graphics graphics) throws ShapeException {
 
-        move(-xOffset, -yOffset);
+
         int x1 = (int) Math.round(x);
         int x2 = (int) Math.round(x);
         int y1 = (int) Math.round(y);
         int y2 = (int) Math.round(y);
         graphics.drawLine(x1,y1,x2,y2);
-        move(xOffset, yOffset);
     }
 }

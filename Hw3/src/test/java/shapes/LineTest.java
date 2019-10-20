@@ -2,6 +2,11 @@ package shapes;
 
 import org.junit.Test;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 public class LineTest {
@@ -47,20 +52,24 @@ public class LineTest {
             new Line(p1, null);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid Point", e.getMessage());
         }
 
         try {
             new Line(null, p2);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            assertEquals("Invalid Point", e.getMessage());
         }
+
+
+
     }
 
 
     @Test
     public void testMove() throws ShapeException {
+
         Line myLine = new Line(1, 2, 4, 10);
 
         myLine.move(3, 4);
@@ -97,6 +106,7 @@ public class LineTest {
 
     @Test
     public void testComputeSlope() throws ShapeException {
+
         Line myLine = new Line(2, 2, 4, 10);
         assertEquals(0.25, myLine.computeSlope(), 0.1);
 
@@ -137,6 +147,23 @@ public class LineTest {
         assertEquals(4, myLine.getPoint2().getX(), 0);
         assertEquals(10, myLine.getPoint2().getY(), 0);
 
+    }
+
+    @Test
+    public void testRender() throws ShapeException{
+        try {
+            Line myLine = new Line(50,10,50,90);
+            BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics = bImg.createGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, 100, 100);
+            graphics.setColor(Color.BLUE);
+            myLine.render(graphics);
+
+            assertTrue(ImageIO.write(bImg, "jpg", new File("line.jpg")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

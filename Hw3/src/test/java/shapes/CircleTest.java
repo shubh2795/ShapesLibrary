@@ -254,25 +254,8 @@ public class CircleTest {
         assertEquals(0, myCircle.computeArea(), 0);
 
     }
-
-    @Test
-    public void render() throws ShapeException {
-        try {
-            Circle myCircle = new Circle(40, 40, 30);
-            BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-            Graphics2D graphics = bImg.createGraphics();
-            graphics.setColor(Color.WHITE);
-            graphics.fillRect(0, 0, 100, 100);
-            graphics.setColor(Color.BLACK);
-            myCircle.render(graphics, 0, 0);
-            assertTrue(ImageIO.write(bImg, "png", new File("circle.png")));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testStrongEncapsulation() throws ShapeException {
+     @Test
+     public void testStrongEncapsulation() throws ShapeException {
         Point center = new Point(1, 2);
         Circle myCircle = new Circle(center, 5);
         assertNotSame(center, myCircle.getCenter());
@@ -282,5 +265,21 @@ public class CircleTest {
         center.move(4, 5);
         assertEquals(1, myCircle.getCenter().getX(), 0);
         assertEquals(2, myCircle.getCenter().getY(), 0);
+     }
+
+    @Test
+    public void render() throws ShapeException {
+        try {
+            Circle myCircle = new Circle(40, 40, 30);
+            BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics = bImg.createGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, 200, 200);
+            graphics.setColor(Color.DARK_GRAY);
+            myCircle.render(graphics);
+            assertTrue(ImageIO.write(bImg, "png", new File("circle.png")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

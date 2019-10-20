@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Rectangle implements Shapes {
 
-        private double width;
+        private double breadth;
         private double length;
         private Line line1;
         private Line line2;
@@ -19,9 +19,9 @@ public class Rectangle implements Shapes {
                 line1 = new Line(point1,point2);
                 line2 = new Line(point2,point3);
                 line3 = new Line(point3,point4);
-                line4 = new Line(point4,point1);
+                line4 = new Line(point1,point4);
                 this.length = line1.computeLength();
-                this.width = line2.computeLength();
+                this.breadth = line2.computeLength();
 
                 //perpendicular check
                 Validator.validateRectanglePerpendicularLines(point1,point2,point3,point4,line1,line2,line3,line4);
@@ -41,46 +41,50 @@ public class Rectangle implements Shapes {
                 this.point3 = line3.getPoint1();
                 this.point4 = line4.getPoint1();
                 this.length = line1.computeLength();
-                this.width = line2.computeLength();
+                this.breadth = line2.computeLength();
 
                 //perpendicular check
                 Validator.validateRectanglePerpendicularLines(point1,point2,point3,point4,line1,line2,line3,line4);
 
         }
 
-        public Rectangle(double length, double width) throws ShapeException {
-                if(width <= 0 || length <= 0){
+        public Rectangle(double length, double breadth) throws ShapeException {
+                if(breadth <= 0 || length <= 0){
                         throw new ShapeException("Invalid side");
                 }
 
-                this.width = width;
+                this.breadth = breadth;
                 this.length = length;
         }
 
         @Override
         public double computeArea()
         {
-                return length*width;
+                return length* breadth;
         }
+
         public Point getPoint1()
         {
                 return point1;
         }
+
         public Point getPoint2()
         {
                 return point2;
         }
+
         public Point getPoint3()
         {
                 return point3;
         }
+
         public Point getPoint4()
         {
                 return point4;
         }
-        public double getWidth()
-        {
-                return width;
+
+        public double getBreadth() {
+                return breadth;
         }
 
         public double getLength()
@@ -112,22 +116,26 @@ public class Rectangle implements Shapes {
                 return line4;
         }
 
-        //TODO: Modify the scale method at the moment just addding to remove errors
+
         @Override
         public void scale(double scaleFactor) throws ShapeException {
                 Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
+                line1.scale(scaleFactor);
+                line4.scale(scaleFactor);
+                Line diagonal = new Line(point1,point3);
+                diagonal.scale(scaleFactor);
         }
 
         @Override
-        public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
+        public void render(Graphics graphics) throws ShapeException {
 
-                move(-xOffset, -yOffset);
+
                 int x = (int) Math.round(point1.getX() - getLength());
-                int y = (int) Math.round(point1.getY() - getWidth());
-                int width = (int) getWidth();
+                int y = (int) Math.round(point1.getY() - getBreadth());
+                int width = (int) getBreadth();
                 int [] xPoints = {(int)point1.getX(), (int)point2.getX(), (int)point3.getX(), (int)point4.getX()};
                 int [] yPoints = {(int)point1.getY(), (int)point2.getY(), (int)point3.getY(), (int)point4.getY()};
                 graphics.drawPolygon(xPoints, yPoints, 4);
-                move(xOffset, yOffset);
+
         }
 }

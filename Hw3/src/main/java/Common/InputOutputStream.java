@@ -8,7 +8,7 @@ import java.io.*;
                 try {
                 System.out.println("Loading Shape...");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                String[] broken_text = null;
+                String[] retrievedData = null;
                 String text = null;
                 String fullString = "";
 
@@ -18,44 +18,41 @@ import java.io.*;
 
                 System.out.println("full string is "+fullString);
 
-                broken_text = fullString.split(",");
-                String first = broken_text[0];
+                retrievedData = fullString.split(",");
+                String first = retrievedData[0];
 
                 // TODO: Remove all the duplicate code
 
                 if (first.equals(AllShapesEnum.allShapes.Point)) {
-                    System.out.println(broken_text[0]);
-                    return new Point(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]));
+                    System.out.println(retrievedData[0]);
+                    return new Point(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]));
                 }
 
                 if (first.equals(AllShapesEnum.allShapes.Line)) {
-                    System.out.println(broken_text[0]);
-                    return new Line(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]));
+                    System.out.println(retrievedData[0]);
+                    return new Line(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]), Double.parseDouble(retrievedData[3]), Double.parseDouble(retrievedData[4]));
                 }
 
                 if (first.equals(AllShapesEnum.allShapes.Circle)) {
-                    System.out.println(broken_text[1]);
-                    return new Circle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]));
+                    System.out.println(retrievedData[1]);
+                    return new Circle(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]), Double.parseDouble(retrievedData[3]));
                 }
 
                 if (first.equals(AllShapesEnum.allShapes.Triangle)) {
-                    System.out.println(broken_text[0]);
-                    return new Triangle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]));
+                    System.out.println(retrievedData[0]);
+                    return new Triangle(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]), Double.parseDouble(retrievedData[3]), Double.parseDouble(retrievedData[4]), Double.parseDouble(retrievedData[5]), Double.parseDouble(retrievedData[6]));
                 }
 
                 if (first.equals(AllShapesEnum.allShapes.Rectangle)) {
-                    System.out.println(broken_text[0]);
-                    return new Rectangle(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]), Double.parseDouble(broken_text[7]), Double.parseDouble(broken_text[8]));
+                    System.out.println(retrievedData[0]);
+                    return new Rectangle(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]), Double.parseDouble(retrievedData[3]), Double.parseDouble(retrievedData[4]), Double.parseDouble(retrievedData[5]), Double.parseDouble(retrievedData[6]), Double.parseDouble(retrievedData[7]), Double.parseDouble(retrievedData[8]));
                 }
-                if (first.equals(AllShapesEnum.allShapes.Ellipse)) {
-                    System.out.println(broken_text[0]);
-                    return new Ellipse(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), Double.parseDouble(broken_text[5]), Double.parseDouble(broken_text[6]), Double.parseDouble(broken_text[7]), Double.parseDouble(broken_text[8]));
-                }
+
                 if (first.equals(AllShapesEnum.allShapes.CompositeShape)) {
-                    return new CompositeShape(broken_text);
+                    return new CompositeShape(retrievedData);
                 }
                 if(first.equals(AllShapesEnum.allShapes.EmbeddedImage)){
-                    return new EmbeddedImage(Double.parseDouble(broken_text[1]), Double.parseDouble(broken_text[2]), Double.parseDouble(broken_text[3]), Double.parseDouble(broken_text[4]), broken_text[5]);
+                    return new EmbeddedImage(Double.parseDouble(retrievedData[1]), Double.parseDouble(retrievedData[2]), Double.parseDouble(retrievedData[3]), Double.parseDouble(retrievedData[4]), retrievedData[5]);
                 }
             }
             catch(Exception e){

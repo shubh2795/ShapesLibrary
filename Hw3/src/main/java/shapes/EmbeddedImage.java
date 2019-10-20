@@ -8,14 +8,14 @@ import java.io.File;
  public class EmbeddedImage implements Shapes {
 
     private double length;
-    private double width;
+    private double breadth;
     private Point imageLocation;
     private String source;
 
-    public EmbeddedImage(double length, double width, double x, double y, String source) throws ShapeException {
+    public EmbeddedImage(double length, double breadth, double x, double y, String source) throws ShapeException {
 
         this.length = length;
-        this.width = width;
+        this.breadth = breadth;
         imageLocation = new Point(x,y);
         this.source = source;
     }
@@ -25,15 +25,14 @@ import java.io.File;
 
     @Override
     public double computeArea() throws ShapeException {
-        return length*width;
+        return length* breadth;
     }
 
     @Override
     public void move(double deltaX, double deltaY) throws ShapeException {
         imageLocation.move(deltaX,deltaY);
     }
-
-    //TODO: Modify the scale method at the moment just addding to remove errors
+    
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
@@ -41,11 +40,11 @@ import java.io.File;
     }
 
     @Override
-    public void render(Graphics graphics, int xOffset, int yOffset) throws ShapeException {
+    public void render(Graphics graphics) throws ShapeException {
 
-        move(-xOffset, -yOffset);
+
         int x = (int) Math.round(imageLocation.getX() - length);
-        int y = (int) Math.round(imageLocation.getY() - width);
+        int y = (int) Math.round(imageLocation.getY() - breadth);
         File sourceFile = new File(source);
         BufferedImage sourceImage = null;
         try{
@@ -53,8 +52,8 @@ import java.io.File;
         }catch (Exception e){
             e.printStackTrace();
         }
-        graphics.drawImage(sourceImage, 0, 0, (int)width, (int)length, null);
-        move(xOffset, yOffset);
+        graphics.drawImage(sourceImage, 0, 0, (int) breadth, (int)length, null);
+
     }
 
 
