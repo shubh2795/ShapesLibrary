@@ -1,5 +1,11 @@
 package Common;
 import shapes.*;
+import shapes.Point;
+import shapes.Rectangle;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
     public class InputOutputStream {
@@ -61,6 +67,20 @@ import java.io.*;
                 return null;
             }
 
+            public static void drawImageOnExternalFile(Shapes shape,Color backgroundColor,Color shapeColor)throws ShapeException{
+
+                try {
+                    BufferedImage bImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+                    Graphics2D graphics = bImg.createGraphics();
+                    graphics.setColor(Color.BLACK);
+                    graphics.fillRect(0, 0, 100, 100);
+                    graphics.setColor(Color.BLACK);
+                    shape.render(graphics);
+                    ImageIO.write(bImg, "jpg", new File("Composite.jpg"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
             public static void saveShape(String fileName, Shapes shape) {
                 try{

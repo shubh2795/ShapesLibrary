@@ -158,17 +158,23 @@ public class TriangleTest {
         assertEquals(9, triangle.getLine3().getPoint2().getX(), 0);
         assertEquals(1, triangle.getLine3().getPoint2().getY(), 0);
     }
-
+    // TODO: Correct parameters here
     @Test
-    public void getLine1() {
+    public void getLine1() throws ShapeException {
+        Triangle triangle   = new Triangle(2,4,3,6,8,9);
+        assertEquals(3, triangle.getLine1());
     }
 
     @Test
-    public void getLine2() {
+    public void getLine2() throws ShapeException {
+        Triangle triangle   = new Triangle(2,4,3,6,8,9);
+        assertEquals(3, triangle.getLine1());
     }
 
     @Test
-    public void getLine3() {
+    public void getLine3() throws ShapeException{
+        Triangle triangle   = new Triangle(2,4,3,6,8,9);
+        assertEquals(3, triangle.getLine1());
     }
 
     @Test
@@ -176,7 +182,7 @@ public class TriangleTest {
         Triangle myTriangle = new Triangle(8,10,6);
         assertEquals(24, myTriangle.computeArea(),0);
     }
-
+    // TODO: Test Scale
     @Test
     public void scale() {
     }

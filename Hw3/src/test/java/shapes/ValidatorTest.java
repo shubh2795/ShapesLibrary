@@ -76,4 +76,13 @@ public class ValidatorTest {
             assertEquals("Invalid", ex.getMessage());
         }
     }
+    //TODO:: Test these
+    @Test
+    public void validateTriangleColinearity() {
+
+    }
+
+    @Test
+    public void validateRectanglePerpendicularLines() {
+    }
 }

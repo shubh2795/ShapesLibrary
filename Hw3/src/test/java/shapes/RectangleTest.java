@@ -1,5 +1,4 @@
 package shapes;
-
 import org.junit.Test;
 
 import javax.imageio.ImageIO;
@@ -178,19 +177,23 @@ public class RectangleTest {
 
     // TODO: Test these
     @Test
-    public void getPoint1() {
+    public void getPoint1() throws ShapeException{
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getPoint2() {
+    public void getPoint2() throws ShapeException{
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getPoint3() {
+    public void getPoint3()throws ShapeException {
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getPoint4() {
+    public void getPoint4()throws ShapeException {
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
@@ -238,21 +241,25 @@ public class RectangleTest {
 
     // TODO: Test these
     @Test
-    public void getLine1() {
+    public void getLine1() throws ShapeException {
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getLine2() {
+    public void getLine2() throws ShapeException{
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getLine3() {
+    public void getLine3() throws ShapeException {
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
 
     @Test
-    public void getLine4() {
+    public void getLine4()throws ShapeException{
+        Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
-
+//Todo: test scale
     @Test
     public void scale() {
 
