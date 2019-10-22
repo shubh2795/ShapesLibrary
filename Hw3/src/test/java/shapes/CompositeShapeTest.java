@@ -1,13 +1,10 @@
 package shapes;
 
 import org.junit.Test;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
-import static org.junit.Assert.*;
 
 public class CompositeShapeTest {
 
@@ -44,8 +41,8 @@ public class CompositeShapeTest {
         compositeShape.addShape(compositeShape3);
         compositeShape.addShape(embeddedImage);
         compositeShape.removeShape(point);
-        //Todo: resolve this error
-        //compositeShape.saveShape("compositeShape.txt", compositeShape);
+        compositeShape.saveShape("compositeShape.txt", compositeShape);
+
 
     }
 
@@ -70,6 +67,7 @@ public class CompositeShapeTest {
 
     @Test
     public void computeArea() {
+
     }
 
     @Test
@@ -89,9 +87,7 @@ public class CompositeShapeTest {
     @Test
     public void render() throws ShapeException{
 
-
             CompositeShape composite = new CompositeShape();
-            // composite.addChildShape(new EmbeddedPicture(44, 55, 80, 50, "graphics/dog.jpg"));
             composite.addShape(new Rectangle(20, 20, 20, 40, 60, 40, 60, 20));
             composite.addShape(new Triangle(10, 20, 30, 60, 40, 10));
             composite.addShape(new EmbeddedImage(18, 16, 10, 10, "forrest-gump.jpg"));

@@ -1,10 +1,11 @@
 package shapes;
-import Common.AllShapesEnum;
-
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import java.util.List;
     public class CompositeShape implements Shapes {
 
         //Collection of Shapes
-        private List<Shapes> shapes = new ArrayList<Shapes>();
+        private List<Shapes> shapes;
+
+        public CompositeShape(){
+            shapes = new ArrayList<Shapes>();
+        }
+
 
         public void addShape(Shapes shape){
             this.shapes.add(shape);
@@ -27,61 +33,67 @@ import java.util.List;
             this.shapes.clear();
         }
 
-        //TODO:: remove conditions
+        @Override
+        public String toString() {
+            try {
+                File newFile = createFile("sample.txt");
+                String text = new String(Files.readAllBytes(Paths.get("sample.txt")), StandardCharsets.UTF_8);
+                return "Compositeshape,"+text;
+            }catch(Exception e){
+
+            }
+            return null;
+        }
+
         public CompositeShape(String [] receivedData){
 
             try{
 
+
                 for(int i=0; i<receivedData.length; i++) {
 
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.Point)){
-                        System.out.println("Adding Point");
-                        shapes.add(new Point(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2])));
-                    }
+                AllShapesEnum.allShapes shape = AllShapesEnum.allShapes.valueOf(receivedData[i]);
 
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.Line)) {
-                        System.out.println("Adding Line");
+                 switch (shape) {
+
+                    case Line:
                         shapes.add(new Line(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4])));
-                    }
 
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.Circle)){
-                        System.out.println("Adding Circle");
+                    case Point:
+                        shapes.add(new Point(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2])));
+
+                    case Circle:
                         shapes.add(new Circle(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3])));
-                    }
 
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.Triangle)){
-                        System.out.println("Adding Triangle");
-                        shapes.add(new Triangle(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4]),Double.parseDouble(receivedData[i+5]), Double.parseDouble(receivedData[i+6])));
-                    }
-
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.Rectangle)){
-                        System.out.println("Adding Rectangle");
+                    case Rectangle:
                         shapes.add(new Rectangle(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4]), Double.parseDouble(receivedData[i+5]), Double.parseDouble(receivedData[i+6]), Double.parseDouble(receivedData[i+7]), Double.parseDouble(receivedData[i+8])));
+
+                    case Triangle:
+                        shapes.add(new Triangle(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4]),Double.parseDouble(receivedData[i+5]), Double.parseDouble(receivedData[i+6])));
+
+                    case EmbeddedImage: {
+                        shapes.add(new EmbeddedImage(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4]), receivedData[i+5]));
+
                     }
 
-
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.CompositeShape)){
-                        System.out.println("Adding Composite Shape");
-                        while(!(receivedData[i].equals("\n/CompositeShape")))
-                        {
-
+                    case CompositeShape: {
+                            while(!(receivedData[i].equals("\n/Compositeshape"))) {
                             String packetString = "";
-                            String [] data = null;
-                            while(!(receivedData[i].equals("\n/CompositeShape")))
-                            {
+                            String [] broke2 = null;
+                            while(!(receivedData[i].equals("\n/Compositeshape"))) {
                                 packetString = packetString.concat(receivedData[i]);
                                 packetString = packetString.concat(",");
                                 i++;
                             }
-                            data = packetString.split(",");
-                            CompositeShape compositeShape = new CompositeShape(data);
+
+                            broke2 = packetString.split(",");
+                            CompositeShape compositeShape = new CompositeShape(broke2);
                             shapes.add(compositeShape);
                         }
+
                     }
-                    if(receivedData[i].equals(AllShapesEnum.allShapes.EmbeddedImage)){
-                        shapes.add(new EmbeddedImage(Double.parseDouble(receivedData[i+1]), Double.parseDouble(receivedData[i+2]), Double.parseDouble(receivedData[i+3]), Double.parseDouble(receivedData[i+4]), receivedData[i+5]));
-                    }
-                }
+                 }
+                 }
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -97,7 +109,7 @@ import java.util.List;
                     bufferedWriter.newLine();
                     for (Shapes shape : shapes) {
                         System.out.println(shape.getClass().getName());
-                        if (!(shape.getClass().getName().equals("examples.shapes.CompositeShape"))) {
+                        if (!(shape.getClass().getName().equals("shapes.CompositeShape"))) {
                             bufferedWriter.write(shape.toString());
                             bufferedWriter.newLine();
                         }
@@ -116,6 +128,7 @@ import java.util.List;
             }
             return null;
         }
+
 
         @Override
         public double computeArea() throws ShapeException {
@@ -145,8 +158,8 @@ import java.util.List;
         @Override
         public void render(Graphics graphics) throws ShapeException {
             for(Shapes shape : shapes){
-                shape.render(graphics);
-            }
+            shape.render(graphics);
         }
+    }
 
     }

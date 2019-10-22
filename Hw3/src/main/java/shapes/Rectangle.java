@@ -93,6 +93,11 @@ public class Rectangle implements Shapes {
         }
 
         @Override
+        public String toString() {
+                return "Rectangle,"+(point1.getX())+","+(point1.getY())+","+(point2.getX())+","+(point2.getY())+","+(point3.getX())+","+(point3.getY())+","+(point4.getX())+","+(point4.getY())+",";
+        }
+
+        @Override
         public void move(double deltaX,double deltaY)throws ShapeException{
                 point1.move(deltaX,deltaY);
                 point2.move(deltaX,deltaY);

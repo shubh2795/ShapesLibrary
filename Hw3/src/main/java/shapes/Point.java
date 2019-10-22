@@ -23,6 +23,11 @@ import java.awt.*;
 
     public void setY(double y) {this.y=y;}
 
+    @Override
+    public String toString() {
+        return "Point,"+String.valueOf(x)+","+String.valueOf(y)+",";
+    }
+
     public void moveX(double deltaX) throws ShapeException {
         if (Double.isInfinite(deltaX) || Double.isNaN(deltaX)){
             throw new ShapeException("Invalid X to perform a move operation");

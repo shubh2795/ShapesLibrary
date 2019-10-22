@@ -19,8 +19,12 @@ import java.io.File;
         imageLocation = new Point(x,y);
         this.source = source;
     }
-    public String getSource(){
-        return source;
+//    public String getSource(){
+//        return source;
+//    }
+    @Override
+    public String toString() {
+         return "EmbeddedPicture,"+imageLocation.getX()+","+imageLocation.getY()+","+(length)+","+(breadth)+","+(source)+",";
     }
 
     @Override

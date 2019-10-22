@@ -25,12 +25,17 @@ public class Line implements Shapes {
     public Point getPoint2() throws ShapeException { return point2.copy(); }
 
     public double computeSlope() {
-        return (point2.getX() - point1.getX())/(point2.getY() - point1.getY());
+        return (point2.getY() - point1.getY())/(point2.getX() - point1.getX());
     }
 
     public double computeLength() {
         return Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) +
                 Math.pow(point2.getY() - point1.getY(), 2));
+    }
+
+    @Override
+    public String toString() {
+        return "Line,"+ (point1.getX())+","+(point1.getY())+","+ (point2.getX())+","+(point2.getY())+",";
     }
 
     @Override

@@ -103,12 +103,12 @@ public class TriangleTest {
         } catch (ShapeException e) {
             assertEquals("Invalid y-location", e.getMessage());
         }
-        try {
-            new Triangle(-3,2,5);
-            fail("Expected exception not thrown for when the last parameter is null");
-        } catch (ShapeException e) {
-            assertEquals("Invalid side", e.getMessage());
-        }
+//        try {
+//            new Triangle(-3,2,5);
+//            fail("Expected exception not thrown for when the last parameter is null");
+//        } catch (ShapeException e) {
+//            assertEquals("Invalid side", e.getMessage());
+//        }
         try {
             new Triangle(1,1,2,2,3,3);
             fail("Expected exception not thrown");
@@ -132,8 +132,8 @@ public class TriangleTest {
 
     @Test
     public void getPerimeter() throws ShapeException {
-        Triangle triangle = new Triangle(3,4,5);
-        assertEquals(12, triangle.getPerimeter(),0);
+        Triangle triangle = new Triangle(1, 1, 1, 2, 2, 1);
+        assertEquals(3.414213562373095, triangle.getPerimeter(),0);
     }
 
     @Test
@@ -161,8 +161,8 @@ public class TriangleTest {
     // TODO: Correct parameters here
     @Test
     public void getLine1() throws ShapeException {
-        Triangle triangle   = new Triangle(2,4,3,6,8,9);
-        assertEquals(3, triangle.getLine1());
+        Triangle triangle   = new Triangle(15, 35, 15, 15, 40, 25);
+        assertEquals(250, triangle.getLine1());
     }
 
     @Test
@@ -179,8 +179,8 @@ public class TriangleTest {
 
     @Test
     public void computeArea() throws ShapeException{
-        Triangle myTriangle = new Triangle(8,10,6);
-        assertEquals(24, myTriangle.computeArea(),0);
+        Triangle myTriangle = new Triangle(15, 35, 15, 15, 40, 25);
+        assertEquals(250, myTriangle.computeArea(),0);
     }
     // TODO: Test Scale
     @Test

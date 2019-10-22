@@ -1,6 +1,7 @@
 package shapes;
 import java.awt.*;
 
+
 @SuppressWarnings("WeakerAccess")
 public class Circle implements Shapes {
     private Point center;
@@ -27,6 +28,11 @@ public class Circle implements Shapes {
 
     public void move(double deltaX, double deltaY) throws ShapeException {
         center.move(deltaX, deltaY);
+    }
+
+    public String toString() {
+
+        return "Circle,"+String.valueOf(center.getX())+","+String.valueOf(center.getY())+","+String.valueOf(radius)+",";
     }
 
     @Override
