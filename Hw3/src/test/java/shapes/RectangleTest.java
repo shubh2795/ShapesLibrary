@@ -93,7 +93,7 @@ public class RectangleTest {
             new Rectangle(Double.POSITIVE_INFINITY, 0, 0, 3, 4, 3, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid x-location", e.getMessage());
+            assertEquals("Invalid Point",e.getMessage());
         }
         try {
             new Rectangle(0, Double.POSITIVE_INFINITY, 0, 3, 4, 3, 4, 0);

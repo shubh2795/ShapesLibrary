@@ -71,13 +71,13 @@ public class TriangleTest {
             new Triangle(Double.POSITIVE_INFINITY, 2, 3,6,4,1);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid x-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Triangle(1, Double.POSITIVE_INFINITY, 3,6,4,1);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid y-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Triangle(1, 2, Double.POSITIVE_INFINITY,6,4,1);

@@ -277,7 +277,7 @@ public class CircleTest {
             graphics.fillRect(0, 0, 200, 200);
             graphics.setColor(Color.DARK_GRAY);
             myCircle.render(graphics);
-            assertTrue(ImageIO.write(bImg, "png", new File("circle.png")));
+            assertTrue(ImageIO.write(bImg, "jpg", new File("Circle.jpg")));
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -7,9 +7,7 @@ public class Triangle implements Shapes {
     private Line line2;
     private Line line3;
     private Point point1, point2, point3;
-//    private double side1;
-//    private double side2;
-//    private double side3;
+
 
     public Triangle(double x1,double y1,double x2,double y2,double x3,double y3) throws ShapeException {
         point1 = new Point(x1,y1);
@@ -18,9 +16,7 @@ public class Triangle implements Shapes {
         line1 = new Line(point1,point2);
         line2 = new Line(point2,point3);
         line3 = new Line(point1,point3);
-//        side1 = line1.computeLength();
-//        side2 = line2.computeLength();
-//        side3 = line3.computeLength();
+
 
         //Collinearity check
         Validator.validateTriangleColinearity(line1,line2,line3);

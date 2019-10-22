@@ -11,7 +11,7 @@ import java.io.*;
         public void move(double deltaX, double deltaY)throws ShapeException;
         public void scale(double scaleFactor)throws ShapeException;
         public double computeArea()throws ShapeException;
-        public String toString()throws ShapeException;
+        public String toString() ;
 
         default void saveShape(String fileName, Shapes shape){
             try{
@@ -20,7 +20,6 @@ import java.io.*;
                 {
                     file.createNewFile();
                     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-                    System.out.println("saveShape method");
                     bufferedWriter.write(shape.toString());
                     bufferedWriter.close();
                 }

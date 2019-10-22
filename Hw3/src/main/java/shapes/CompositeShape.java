@@ -36,9 +36,9 @@ import java.util.List;
         @Override
         public String toString() {
             try {
-                File newFile = createFile("sample.txt");
-                String text = new String(Files.readAllBytes(Paths.get("sample.txt")), StandardCharsets.UTF_8);
-                return "Compositeshape,"+text;
+                File newFile = createFile("testFile.txt");
+                String text = new String(Files.readAllBytes(Paths.get("testFile.txt")), StandardCharsets.UTF_8);
+                return "CompositeShape,"+text;
             }catch(Exception e){
 
             }
@@ -77,22 +77,23 @@ import java.util.List;
                     }
 
                     case CompositeShape: {
-                            while(!(receivedData[i].equals("\n/Compositeshape"))) {
+                            while(!(receivedData[i].equals("\n/CompositeShape"))) {
                             String packetString = "";
-                            String [] broke2 = null;
-                            while(!(receivedData[i].equals("\n/Compositeshape"))) {
+                            String [] data = null;
+                            while(!(receivedData[i].equals("\n/CompositeShape"))) {
                                 packetString = packetString.concat(receivedData[i]);
                                 packetString = packetString.concat(",");
                                 i++;
                             }
 
-                            broke2 = packetString.split(",");
-                            CompositeShape compositeShape = new CompositeShape(broke2);
+                            data = packetString.split(",");
+                            CompositeShape compositeShape = new CompositeShape(data);
                             shapes.add(compositeShape);
                         }
 
                     }
                  }
+
                  }
 
             }catch (Exception e){
