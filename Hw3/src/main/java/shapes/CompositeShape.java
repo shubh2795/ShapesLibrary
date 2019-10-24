@@ -1,11 +1,6 @@
 package shapes;
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +30,12 @@ import java.util.List;
 
         @Override
         public String stringToTextFile() {
-            try {
-                File newFile = createFile("textFiles\\testFile.txt");
-                String text = new String(Files.readAllBytes(Paths.get("textFiles\\testFile.txt")), StandardCharsets.UTF_8);
-                return "CompositeShape,"+text;
-            }catch(Exception e){
-
+            String text= "CompositeShape,";
+            for(Shapes s:shapes){
+                text= text+s.stringToTextFile()+"\n";
             }
-            return null;
+            return text;
+
         }
 
         public CompositeShape(String [] receivedData){
@@ -100,36 +93,6 @@ import java.util.List;
                 e.printStackTrace();
             }
         }
-
-        public File createFile(String sampleFile) {
-            try {
-                File file = new File(sampleFile);
-                if (!file.exists()) {
-                    file.createNewFile();
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-                    bufferedWriter.newLine();
-                    for (Shapes shape : shapes) {
-                        System.out.println(shape.getClass().getName());
-                        if (!(shape.getClass().getName().equals("shapes.CompositeShape"))) {
-                            bufferedWriter.write(shape.toString());
-                            bufferedWriter.newLine();
-                        }
-                        else{
-                            bufferedWriter.write("CompositeShape,");
-                            bufferedWriter.newLine();
-                            bufferedWriter.write("/CompositeShape,");
-                            bufferedWriter.newLine();
-                        }
-                    }
-                    bufferedWriter.close();
-                    return file;
-                }
-            } catch (Exception e) {
-
-            }
-            return null;
-        }
-
 
         @Override
         public double computeArea() throws ShapeException {

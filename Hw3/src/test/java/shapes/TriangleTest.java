@@ -181,6 +181,14 @@ public class TriangleTest {
     }
 
     @Test
+    public void testStringToTextFile() throws ShapeException {
+        Triangle triangle = new Triangle(3, 2, 5, 6, 9, 1);
+        String actual= triangle.stringToTextFile();
+        String expected= "Triangle,3.0,2.0,5.0,6.0,9.0,1.0,";
+        assertEquals(expected,actual);
+    }
+
+    @Test
     public void computeArea() throws ShapeException{
         Triangle myTriangle = new Triangle(15, 35, 15, 15, 40, 25);
         assertEquals(250, myTriangle.computeArea(),0);

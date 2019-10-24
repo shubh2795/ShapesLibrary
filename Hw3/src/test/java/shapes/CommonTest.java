@@ -25,6 +25,12 @@ public class CommonTest {
             Common.saveShapeToTextFile(rectangle, "textFiles\\rectangle.txt");
             Triangle triangle = new Triangle(1, 1, 1, 2, 2, 1);
             Common.saveShapeToTextFile(triangle, "textFiles\\rectangle.txt");
+            CompositeShape compositeShape=new CompositeShape();
+            compositeShape.addShape(myCircle);
+            compositeShape.addShape(myLine);
+            compositeShape.addShape(p1);
+            compositeShape.addShape(rectangle);
+            Common.saveShapeToTextFile(compositeShape, "textFiles\\composite.txt");
         }catch(Exception e){
             System.out.println("Exception: " + e);
         }

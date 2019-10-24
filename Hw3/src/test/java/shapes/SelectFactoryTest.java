@@ -8,6 +8,8 @@ public class SelectFactoryTest {
 
     @Test
     public void getFactory() {
-
+        SelectFactory selectFactory= new SelectFactory();
+        selectFactory.getFactory("ShapeFlyweightFactory");
+        selectFactory.getFactory("Factory");
     }
 }

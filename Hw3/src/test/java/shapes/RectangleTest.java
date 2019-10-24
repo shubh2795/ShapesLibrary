@@ -303,4 +303,12 @@ public class RectangleTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testStringToTextFile() throws ShapeException {
+        Rectangle myRectangle = new Rectangle(1, 1,1,0,3,5,8,0);
+        String actual=myRectangle.stringToTextFile();
+        String expected= "Rectangle,1.0,1.0,1.0,0.0,3.0,5.0,8.0,0.0,";
+        assertEquals(expected,actual);
+    }
 }

@@ -7,8 +7,26 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class CompositeShapeTest {
+
+
+    @Test
+    public void testValidConstruction() throws ShapeException{
+        String compositeshape1="\nShapesEnum.ShapeType.POINT,1,1,\nShapesEnum.ShapeType.LINE,1,1,4,5";
+        String compositeshape="\nShapesEnum.ShapeType.POINT,1,1,\nShapesEnum.ShapeType.LINE,1,1,4,5"+compositeshape1;
+        String[] objectDetails = new String[]{"\n"+AllShapesEnum.allShapes.CompositeShape,
+                "\n"+AllShapesEnum.allShapes.Point,"1","1",
+                "\n"+AllShapesEnum.allShapes.Line,"1","1","4","5",
+                "\n"+AllShapesEnum.allShapes.Circle,"0","0","5",
+                "\n"+AllShapesEnum.allShapes.Triangle,"0","0","3","0","3","4",
+                "\n"+AllShapesEnum.allShapes.Rectangle,"0","0","4","0","4","4","0","4",
+                "\n"+AllShapesEnum.allShapes.EmbeddedImage,"20","20","10","10","images\\panda.jpg",
+                "\n"+AllShapesEnum.allShapes.CompositeShape,compositeshape};
+        CompositeShape compositeShape=new CompositeShape(objectDetails);
+
+    }
 
     @Test
     public void addShape() throws ShapeException{
@@ -58,6 +76,7 @@ public class CompositeShapeTest {
 
     @Test
     public void createFile() {
+
     }
 
     @Test
@@ -98,6 +117,12 @@ public class CompositeShapeTest {
         assertEquals(110,line.getPoint2().getX(),0);
         assertEquals(110,line.getPoint2().getY(),0);
         assertEquals(10,circle.getRadius(),0);
+    }
+
+    @Test
+    public  void testStringToTextFile(){
+        CompositeShape compositeShape=new CompositeShape();
+        compositeShape.stringToTextFile();
     }
 
 

@@ -31,8 +31,19 @@ public class EmbeddedImageTest {
     }
 
     @Test
-    public void scale() {
+    public void testScale() throws ShapeException {
+        EmbeddedImage myEmbeddedPicture = new EmbeddedImage(10, 20, 25, 25, "images\\panda.jpg");
+        myEmbeddedPicture.scale(12);
     }
+
+    @Test
+    public void testStringToTextFile() throws ShapeException {
+        EmbeddedImage myEmbeddedPicture = new EmbeddedImage(10, 20, 25, 25, "images\\panda.jpg");
+        String expected= "EmbeddedImage,25.0,25.0,10.0,20.0,images\\panda.jpg,";
+        String actual=myEmbeddedPicture.stringToTextFile();
+        assertEquals(expected,actual);
+    }
+
 
     @Test
     public void render() {
