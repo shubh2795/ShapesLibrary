@@ -16,24 +16,32 @@ public class RectangleTest {
         Point point2 = new Point(0,3);
 
         Line line1 = new Line(point1, point2);
-        assertSame(point1, line1.getPoint1());
-        assertSame(point2, line1.getPoint2());
+        assertEquals(0,line1.getPoint1().getX(),0);
+        assertEquals(0,line1.getPoint1().getY(),0);
+        assertEquals(0,line1.getPoint2().getX(),0);
+        assertEquals(3,line1.getPoint2().getY(),0);
 
         Point point3 = new Point(4,3);
 
         Line line2 = new Line(point2, point3);
-        assertSame(point2, line2.getPoint1());
-        assertSame(point3, line2.getPoint2());
+        assertEquals(0,line2.getPoint1().getX(),0);
+        assertEquals(3,line2.getPoint1().getY(),0);
+        assertEquals(4,line2.getPoint2().getX(),0);
+        assertEquals(3,line2.getPoint2().getY(),0);
 
         Point point4 = new Point(4,0);
 
         Line line3 = new Line(point3, point4);
-        assertSame(point3, line3.getPoint1());
-        assertSame(point4, line3.getPoint2());
+        assertEquals(4,line3.getPoint1().getX(),0);
+        assertEquals(3,line3.getPoint1().getY(),0);
+        assertEquals(4,line3.getPoint2().getX(),0);
+        assertEquals(0,line3.getPoint2().getY(),0);
 
         Line line4 = new Line(point4, point1);
-        assertSame(point4, line4.getPoint1());
-        assertSame(point1, line4.getPoint2());
+        assertEquals(4,line4.getPoint1().getX(),0);
+        assertEquals(0,line4.getPoint1().getY(),0);
+        assertEquals(0,line4.getPoint2().getX(),0);
+        assertEquals(0,line4.getPoint2().getY(),0);
 
         Rectangle myRectangle = new Rectangle(line1,line2,line3,line4);
 
@@ -99,43 +107,43 @@ public class RectangleTest {
             new Rectangle(0, Double.POSITIVE_INFINITY, 0, 3, 4, 3, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid y-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, Double.POSITIVE_INFINITY, 3, 4, 3, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid x-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, 0, Double.POSITIVE_INFINITY, 4, 3, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid y-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, 0, 3, Double.POSITIVE_INFINITY, 3, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid x-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, 0, 3, 4, Double.POSITIVE_INFINITY, 4, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid y-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, 0, 3, 4, 3, Double.POSITIVE_INFINITY, 0);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid x-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0, 0, 3, 4, 3, 4, Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (ShapeException e) {
-            assertEquals("Invalid y-location", e.getMessage());
+            assertEquals("Invalid Point", e.getMessage());
         }
         try {
             new Rectangle(0, 0);
@@ -261,7 +269,21 @@ public class RectangleTest {
     }
 //Todo: test scale
     @Test
-    public void scale() {
+    public void scale() throws ShapeException {
+        Point point1=new Point(1,1);
+        Point point2=new Point(1,0);
+        Point point3=new Point(3,5);
+        Point point4=new Point(8,0);
+        Rectangle rectangle=new Rectangle(1, 1,1,0,3,5,8,0);
+        rectangle.scale(2);
+        assertEquals(point1.getX(),rectangle.getPoint1().getX(),0);
+        assertEquals(point1.getY(),rectangle.getPoint1().getY(),0);
+        assertEquals(1,rectangle.getPoint2().getX(),0);
+        assertEquals(0,rectangle.getPoint2().getY(),0);
+        assertEquals(3,rectangle.getPoint3().getX(),0);
+        assertEquals(5,rectangle.getPoint3().getY(),0);
+        assertEquals(8,rectangle.getPoint4().getX(),0);
+        assertEquals(0,rectangle.getPoint4().getY(),0);
 
     }
 
@@ -275,7 +297,7 @@ public class RectangleTest {
             graphics.fillRect(0, 0, 200, 300);
             graphics.setColor(Color.GREEN);
             myRectangle.render(graphics);
-            assertTrue(ImageIO.write(bImg, "jpg", new File("Rectangle.jpg")));
+            assertTrue(ImageIO.write(bImg, "jpg", new File("images\\Rectangle.jpg")));
 
         }catch (Exception e){
             e.printStackTrace();

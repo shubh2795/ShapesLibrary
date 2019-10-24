@@ -31,7 +31,7 @@ public class Circle implements Shapes {
     }
 
     @Override
-    public String toString() {
+    public String stringToTextFile() {
 
         return "Circle,"+String.valueOf(center.getX())+","+String.valueOf(center.getY())+","+String.valueOf(radius)+",";
     }

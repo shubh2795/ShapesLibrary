@@ -17,12 +17,17 @@ public class EmbeddedImageTest {
     }
 
     @Test
-    public void computeArea() {
-
+    public void testComputeArea() throws ShapeException {
+        EmbeddedImage myEmbeddedPicture = new EmbeddedImage(10, 20, 25, 25, "images\\panda.jpg");
+        assertEquals(200,myEmbeddedPicture.computeArea(),0);
     }
 
     @Test
-    public void move() {
+    public void testMove() throws ShapeException {
+        EmbeddedImage myEmbeddedPicture = new EmbeddedImage(10, 20, 25, 25, "images\\panda.jpg");
+        myEmbeddedPicture.move(4,5);
+        assertEquals(29,myEmbeddedPicture.getImageLocation().getX(),0);
+        assertEquals(30,myEmbeddedPicture.getImageLocation().getY(),0);
     }
 
     @Test

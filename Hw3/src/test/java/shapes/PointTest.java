@@ -29,35 +29,35 @@ public class PointTest {
             new Point(1,Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             new Point(1,Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             new Point(1,Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             new Point(Double.POSITIVE_INFINITY, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             new Point(Double.NEGATIVE_INFINITY, 1);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
@@ -93,21 +93,21 @@ public class PointTest {
             p1.moveX(Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             p1.moveX(Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             p1.moveX(Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
     }
@@ -136,21 +136,21 @@ public class PointTest {
             p1.moveY(Double.POSITIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             p1.moveY(Double.NEGATIVE_INFINITY);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
         try {
             p1.moveY(Double.NaN);
             fail("Expected exception not thrown");
         } catch (Exception e) {
-            // ignore
+            System.out.println("Exception: " + e);
         }
 
     }
@@ -241,10 +241,34 @@ public class PointTest {
             graphics.fillRect(0, 0, 100, 100);
             graphics.setColor(Color.BLACK);
             myPoint.render(graphics);
-            assertTrue(ImageIO.write(bImg, "jpg", new File("Point.jpg")));
+            assertTrue(ImageIO.write(bImg, "jpg", new File("images\\Point.jpg")));
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testComputeArea() throws ShapeException {
+        Point myPoint = new Point(50,50);
+        assertEquals(0,myPoint.computeArea(),0);
+    }
+
+    @Test
+    public void scale() throws ShapeException{
+        Point point=new Point(10,20);
+        Point point1=point.copy();
+        point1.scale(5);
+        assertEquals(point.getX(),point1.getX(),0);
+        assertEquals(point.getY(),point1.getY(),0);
+    }
+
+
+    @Test
+    public void testStringToTextFile() throws ShapeException {
+        Point myPoint = new Point(1,2);
+        String expected= "Point,1.0,2.0,";
+        String actual= myPoint.stringToTextFile();
+        assertEquals(expected,actual);
     }
 
 }

@@ -111,16 +111,16 @@ public class LineTest {
         assertEquals(4, myLine.computeSlope(), 0.1);
 
         myLine = new Line(2, 2, 4, 10);
-        assertEquals(0.25, myLine.computeSlope(), 0.1);
+        assertEquals(4, myLine.computeSlope(), 0.1);
 
         myLine = new Line(2, 2, 2, 4);
-        assertEquals(0, myLine.computeSlope(), 0.1);
-
-        myLine = new Line(2, 2, 4, 2);
         assertEquals(Double.POSITIVE_INFINITY, myLine.computeSlope(), 0.1);
 
+        myLine = new Line(2, 2, 4, 2);
+        assertEquals(0, myLine.computeSlope(), 0.1);
+
         myLine = new Line(4, 2, 2, 2);
-        assertEquals(Double.NEGATIVE_INFINITY, myLine.computeSlope(), 0.1);
+        assertEquals(0, myLine.computeSlope(), 0.1);
 
         myLine = new Line(2, 2, 2, 2);
         assertEquals(Double.NaN, myLine.computeSlope(), 0.1);
@@ -160,10 +160,35 @@ public class LineTest {
             graphics.setColor(Color.BLUE);
             myLine.render(graphics);
 
-            assertTrue(ImageIO.write(bImg, "jpg", new File("Line.jpg")));
+            assertTrue(ImageIO.write(bImg, "jpg", new File("images\\Line.jpg")));
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    @Test
+    public void testComputeArea() throws ShapeException {
+        Line myLine = new Line(50,10,50,90);
+        assertEquals(0,myLine.computeArea(),0);
+    }
+
+    @Test
+    public void scale() throws ShapeException{
+        Point point1 = new Point(10, 10);
+        Point point2 = new Point(40,40);
+        Line line=new Line(point1,point2);
+        line.scale(5);
+        assertEquals(point1.getX(),line.getPoint1().getX(),0);
+        assertEquals(point1.getY(),line.getPoint1().getY(),0);
+        assertEquals(160,line.getPoint2().getX(),0);
+        assertEquals(160,line.getPoint2().getY(),0);
+    }
+
+    @Test
+    public void testStringToTextFile() throws ShapeException {
+        Line myLine= new Line(1,2,4,10);
+        String expected="Line,1.0,2.0,4.0,10.0,";
+        String actual= myLine.stringToTextFile();
+        assertEquals(expected,actual);
     }
 
 }

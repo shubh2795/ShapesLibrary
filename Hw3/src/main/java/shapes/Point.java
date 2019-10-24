@@ -24,7 +24,7 @@ import java.awt.*;
     public void setY(double y) {this.y=y;}
 
     @Override
-    public String toString() {
+    public String stringToTextFile() {
         return "Point,"+String.valueOf(x)+","+String.valueOf(y)+",";
     }
 

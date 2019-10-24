@@ -17,6 +17,4 @@ public abstract class AllShapesEnumTest {
         assertEquals("EmbeddedImage",AllShapesEnum.allShapes.EmbeddedImage);
     }
 
-
-
-}
+    }

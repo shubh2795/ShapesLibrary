@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import static org.junit.Assert.assertEquals;
+
 public class CompositeShapeTest {
 
     @Test
@@ -19,16 +21,12 @@ public class CompositeShapeTest {
         EmbeddedImage embeddedImage = new EmbeddedImage(600, 600, 10, 10, "images\\panda.jpg");
         CompositeShape compositeShape1 = new CompositeShape();
         compositeShape1.addShape(rectangle);
-
         CompositeShape compositeShape2 = new CompositeShape();
         compositeShape2.addShape(circle);
         compositeShape2.addShape(triangle);
-
         CompositeShape compositeShape3 = new CompositeShape();
         compositeShape3.addShape(line);
         compositeShape3.addShape(circle);
-
-
         CompositeShape compositeShape = new CompositeShape();
         compositeShape.addShape(point);
         compositeShape.addShape(line);
@@ -37,13 +35,10 @@ public class CompositeShapeTest {
         compositeShape.addShape(rectangle);
         compositeShape.addShape(compositeShape1);
         compositeShape.addShape(compositeShape2);
-
         compositeShape.addShape(compositeShape3);
         compositeShape.addShape(embeddedImage);
         compositeShape.removeShape(point);
-        compositeShape.saveShape("textFiles\\compositeShape.txt", compositeShape);
-
-
+        Common.saveShapeToTextFile(compositeShape, "textFiles\\compositeShape.txt");
     }
 
     @Test
@@ -66,8 +61,14 @@ public class CompositeShapeTest {
     }
 
     @Test
-    public void computeArea() {
-
+    public void computeArea() throws ShapeException{
+        Circle shape1 = new Circle(2, 2, 5);
+        Rectangle shape2 = new Rectangle(10, 10, 10, 20, 20, 20, 20, 10);
+        CompositeShape compositeShape = new CompositeShape();
+        compositeShape.addShape(shape1);
+        compositeShape.addShape(shape2);
+        double area = compositeShape.computeArea();
+        assertEquals(178.53981633974485, area, 0);
     }
 
     @Test
@@ -81,8 +82,24 @@ public class CompositeShapeTest {
     }
 
     @Test
-    public void scale() {
+    public void scale() throws ShapeException {
+        Circle circle = new Circle(2, 2, 5);
+        Point point=new Point(10,20);
+        Line line = new Line(30,30,70,70);
+        CompositeShape compositeShape=new CompositeShape();
+        compositeShape.addShape(point);
+        compositeShape.addShape(line);
+        compositeShape.addShape(circle);
+        compositeShape.scale(2);
+        assertEquals(10,point.getX(),0);
+        assertEquals(20,point.getY(),0);
+        assertEquals(30,line.getPoint1().getX(),0);
+        assertEquals(30,line.getPoint1().getY(),0);
+        assertEquals(110,line.getPoint2().getX(),0);
+        assertEquals(110,line.getPoint2().getY(),0);
+        assertEquals(10,circle.getRadius(),0);
     }
+
 
     @Test
     public void render() throws ShapeException{
@@ -98,7 +115,7 @@ public class CompositeShapeTest {
             graphics.fillRect(0, 0, 100, 100);
             graphics.setColor(Color.BLACK);
             composite.render(graphics);
-            ImageIO.write(bImg, "jpg", new File("textFiles\\Composite.jpg"));
+            ImageIO.write(bImg, "jpg", new File("images\\Composite.jpg"));
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         }

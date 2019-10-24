@@ -1,4 +1,4 @@
-CompositeShape,
+
 shapes.Line@2353b3e6
 shapes.Circle@631330c
 shapes.Triangle@42f93a98

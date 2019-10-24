@@ -23,9 +23,10 @@ import java.io.File;
     public String getSource(){
         return source;
     }
+    public Point getImageLocation(){return imageLocation;}
 
     @Override
-    public String toString() {
+    public String stringToTextFile() {
          return "EmbeddedImage,"+imageLocation.getX()+","+imageLocation.getY()+","+(length)+","+(breadth)+","+(source)+",";
     }
 
@@ -42,7 +43,6 @@ import java.io.File;
     @Override
     public void scale(double scaleFactor) throws ShapeException {
         Validator.validatePositiveDouble(scaleFactor, "Invalid scale factor");
-
     }
 
     @Override

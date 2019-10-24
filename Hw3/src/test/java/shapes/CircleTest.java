@@ -277,9 +277,17 @@ public class CircleTest {
             graphics.fillRect(0, 0, 200, 200);
             graphics.setColor(Color.DARK_GRAY);
             myCircle.render(graphics);
-            assertTrue(ImageIO.write(bImg, "jpg", new File("Circle.jpg")));
+            assertTrue(ImageIO.write(bImg, "jpg", new File("images\\Circle.jpg")));
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testStringToTextFile() throws ShapeException {
+        Circle myCircle = new Circle(1, 2, 5);
+        String expected="Circle,1.0,2.0,5.0,";
+        String actual=myCircle.stringToTextFile();
+        assertEquals(expected,actual);
     }
 }

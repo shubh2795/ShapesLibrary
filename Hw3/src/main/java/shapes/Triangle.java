@@ -17,7 +17,6 @@ public class Triangle implements Shapes {
         line2 = new Line(point2,point3);
         line3 = new Line(point1,point3);
 
-
         //Collinearity check
         Validator.validateTriangleColinearity(line1,line2,line3);
     }
@@ -44,6 +43,15 @@ public class Triangle implements Shapes {
         point2.move(deltaX,deltaY);
         point3.move(deltaX,deltaY);
     }
+    public Point getPoint1(){
+        return point1;
+    }
+    public Point getPoint2(){
+        return point2;
+    }
+    public Point getPoint3(){
+        return point3;
+    }
 
     public Line getLine1() {
         return line1;
@@ -58,7 +66,7 @@ public class Triangle implements Shapes {
     }
 
     @Override
-    public String toString() {
+    public String stringToTextFile() {
         return "Triangle,"+String.valueOf(point1.getX())+","+String.valueOf(point1.getY())+","+String.valueOf(point2.getX())+","+String.valueOf(point2.getY())+","+String.valueOf(point3.getX())+","+String.valueOf(point3.getY())+",";
     }
 

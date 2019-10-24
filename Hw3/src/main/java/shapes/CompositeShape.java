@@ -34,10 +34,10 @@ import java.util.List;
         }
 
         @Override
-        public String toString() {
+        public String stringToTextFile() {
             try {
-                File newFile = createFile("testFile.txt");
-                String text = new String(Files.readAllBytes(Paths.get("testFile.txt")), StandardCharsets.UTF_8);
+                File newFile = createFile("textFiles\\testFile.txt");
+                String text = new String(Files.readAllBytes(Paths.get("textFiles\\testFile.txt")), StandardCharsets.UTF_8);
                 return "CompositeShape,"+text;
             }catch(Exception e){
 

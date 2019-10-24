@@ -34,7 +34,7 @@ public class Line implements Shapes {
     }
 
     @Override
-    public String toString() {
+    public String stringToTextFile() {
         return "Line,"+ (point1.getX())+","+(point1.getY())+","+ (point2.getX())+","+(point2.getY())+",";
     }
 
