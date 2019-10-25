@@ -53,13 +53,11 @@ public class Common {
     public static void saveShapeToTextFile(Shapes shapes, String fileName){
         try{
             File file = new File(fileName);
-            if(!file.exists())
-            {
-                file.createNewFile();
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-                bufferedWriter.write(shapes.stringToTextFile());
-                bufferedWriter.close();
-            }
+            file.createNewFile();
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+            bufferedWriter.write(shapes.stringToTextFile());
+            bufferedWriter.close();
+
 
         }catch(Exception e){
             System.out.println("Exception "+ e);
