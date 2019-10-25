@@ -24,7 +24,7 @@ public class CommonTest {
             Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
             Common.saveShapeToTextFile(rectangle, "textFiles\\rectangle.txt");
             Triangle triangle = new Triangle(1, 1, 1, 2, 2, 1);
-            Common.saveShapeToTextFile(triangle, "textFiles\\rectangle.txt");
+            Common.saveShapeToTextFile(triangle, "textFiles\\triangle.txt");
             CompositeShape compositeShape=new CompositeShape();
             compositeShape.addShape(myCircle);
             compositeShape.addShape(myLine);

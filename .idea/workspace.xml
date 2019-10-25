@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d479c9d3-6c5a-4e9d-8540-3b133c5883e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/src/main/java/shapes/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hw3/src/main/java/shapes/Common.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/circle.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/composite.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/compositeShape.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/embedded.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/line.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/point.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hw3/textFiles/rectangle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hw3/out/test/classes/shapes/CommonTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Hw3/out/test/classes/shapes/CommonTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -75,7 +70,7 @@
     <SUITE FILE_PATH="coverage/HW3$ShapeFlyweightFactoryTest.ic" NAME="ShapeFlyweightFactoryTest Coverage Results" MODIFIED="1571881955371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>shapes.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/HW3$All_in_HW3_Hw3_test.ic" NAME="All in HW3.Hw3.test Coverage Results" MODIFIED="1571978625812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HW3$All_in_HW3_Hw3_test.ic" NAME="All in HW3.Hw3.test Coverage Results" MODIFIED="1571979683619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HW3$SelectFactoryTest.ic" NAME="SelectFactoryTest Coverage Results" MODIFIED="1571881769739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>shapes.*</FILTER>
     </SUITE>
@@ -125,36 +120,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/ShapesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/AbstractFactoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/AllShapesEnumTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CircleTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4794">
@@ -166,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/CompositeShape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
+            <state relative-caret-position="325">
               <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -184,20 +149,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Common.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+            <state relative-caret-position="325">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3498">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Triangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Rectangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="e#2406#2407#0" expanded="true" />
+                <element signature="e#2447#2448#0" expanded="true" />
+                <element signature="e#2491#2492#0" expanded="true" />
+                <element signature="e#2532#2533#0" expanded="true" />
+                <element signature="e#2576#2577#0" expanded="true" />
+                <element signature="e#2617#2618#0" expanded="true" />
+                <element signature="e#2661#2662#0" expanded="true" />
+                <element signature="e#2702#2703#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+            <state relative-caret-position="67">
+              <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -205,7 +207,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CompositeShapeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="340">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -243,6 +245,7 @@
       <find>TODO</find>
       <find>imageLocation</find>
       <find>getVertices</find>
+      <find>triangle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -291,12 +294,12 @@
         <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/EmbeddedImageTest.java" />
         <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/TriangleTest.java" />
         <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/SelectFactoryTest.java" />
-        <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java" />
-        <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java" />
         <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/ShapeFlyweightFactoryTest.java" />
         <option value="$PROJECT_DIR$/Hw3/src/main/java/shapes/CompositeShape.java" />
         <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/CompositeShapeTest.java" />
         <option value="$PROJECT_DIR$/Hw3/src/main/java/shapes/Common.java" />
+        <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java" />
+        <option value="$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java" />
       </list>
     </option>
   </component>
@@ -314,7 +317,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -374,12 +376,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571978729440" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571979679466" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -425,22 +428,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommonTest.getShapesFromTextFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HW3.Hw3.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="shapes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="shapes" />
-      <option name="MAIN_CLASS_NAME" value="shapes.CommonTest" />
-      <option name="METHOD_NAME" value="getShapesFromTextFiles" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CompositeShapeTest.testValidConstruction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HW3.Hw3.test" />
       <extension name="coverage">
@@ -452,6 +439,22 @@
       <option name="PACKAGE_NAME" value="shapes" />
       <option name="MAIN_CLASS_NAME" value="shapes.CompositeShapeTest" />
       <option name="METHOD_NAME" value="testValidConstruction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RectangleTest.render" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3.Hw3.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shapes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shapes" />
+      <option name="MAIN_CLASS_NAME" value="shapes.RectangleTest" />
+      <option name="METHOD_NAME" value="render" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -492,10 +495,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in HW3.Hw3.test" />
+        <item itemvalue="JUnit.RectangleTest.render" />
         <item itemvalue="JUnit.CompositeShapeTest.testValidConstruction" />
         <item itemvalue="JUnit.ShapeFlyweightFactoryTest.getShape" />
         <item itemvalue="JUnit.RectangleTest.testStringToTextFile" />
-        <item itemvalue="JUnit.CommonTest.getShapesFromTextFiles" />
       </list>
     </recent_temporary>
   </component>
@@ -519,26 +522,12 @@
       <workItem from="1571691296496" duration="27181000" />
       <workItem from="1571844344607" duration="11500000" />
       <workItem from="1571866705567" duration="13476000" />
-      <workItem from="1571977896464" duration="682000" />
+      <workItem from="1571977896464" duration="948000" />
+      <workItem from="1571979045620" duration="602000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CommonTest_getShapesFromTextFiles - 2019.10.23 at 20h 39m 42s.xml">
-      <configuration name="CommonTest.getShapesFromTextFiles" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CommonTest_getShapesFromTextFiles - 2019.10.23 at 20h 40m 18s.xml">
-      <configuration name="CommonTest.getShapesFromTextFiles" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_HW3_Hw3_test - 2019.10.23 at 22h 54m 07s.xml">
-      <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RectangleTest_testStringToTextFile - 2019.10.23 at 22h 55m 13s.xml">
-      <configuration name="RectangleTest.testStringToTextFile" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RectangleTest_testStringToTextFile - 2019.10.23 at 22h 56m 42s.xml">
-      <configuration name="RectangleTest.testStringToTextFile" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_HW3_Hw3_test - 2019.10.23 at 22h 57m 07s.xml">
       <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
     </history-entry>
@@ -554,15 +543,30 @@
     <history-entry file="All_in_HW3_Hw3_test - 2019.10.23 at 23h 43m 02s.xml">
       <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_HW3_Hw3_test - 2019.10.24 at 22h 44m 06s.xml">
+      <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RectangleTest_render - 2019.10.24 at 22h 51m 39s.xml">
+      <configuration name="RectangleTest.render" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_HW3_Hw3_test - 2019.10.24 at 22h 54m 50s.xml">
+      <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_HW3_Hw3_test - 2019.10.24 at 22h 55m 31s.xml">
+      <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_HW3_Hw3_test - 2019.10.24 at 22h 58m 29s.xml">
+      <configuration name="All in HW3.Hw3.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174808000" />
+    <option name="totallyTimeSpent" value="175676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30635402" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31089258" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -571,7 +575,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -768,23 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="95" column="38" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="38" />
-          <folding>
-            <element signature="e#2406#2407#0" expanded="true" />
-            <element signature="e#2447#2448#0" expanded="true" />
-            <element signature="e#2491#2492#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
-            <element signature="e#2617#2618#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2702#2703#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/SelectFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -816,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Triangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="68" column="34" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/EmbeddedImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-267">
@@ -830,13 +810,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="313" column="1" lean-forward="true" selection-start-line="313" selection-start-column="1" selection-end-line="313" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -878,10 +851,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java">
+    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CompositeShapeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+        <state relative-caret-position="340">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -892,19 +868,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CompositeShapeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/CompositeShape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="325">
           <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -914,8 +880,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Common.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+        <state relative-caret-position="325">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hw3/src/main/java/shapes/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#2406#2407#0" expanded="true" />
+            <element signature="e#2447#2448#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2576#2577#0" expanded="true" />
+            <element signature="e#2617#2618#0" expanded="true" />
+            <element signature="e#2661#2662#0" expanded="true" />
+            <element signature="e#2702#2703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/RectangleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3498">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hw3/src/test/java/shapes/CommonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
         </state>
       </provider>
     </entry>

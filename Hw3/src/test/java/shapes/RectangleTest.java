@@ -267,7 +267,7 @@ public class RectangleTest {
     public void getLine4()throws ShapeException{
         Rectangle rectangle = new Rectangle(1, 1,1,0,3,5,8,0);
     }
-//Todo: test scale
+
     @Test
     public void scale() throws ShapeException {
         Point point1=new Point(1,1);
